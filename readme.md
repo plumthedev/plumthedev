@@ -1,6 +1,6 @@
 # ComPania boilerplate
 
-## Based on ZURB WebApp Template
+## Based on [ZURB WebApp Template](https://foundation.zurb.com/sites/docs/starter-projects.html#zurb-template)
 
 This boilerplate has a Gulp-powered build system with these features:
 
