@@ -48,3 +48,17 @@ To create compressed, production-ready assets, run `yarn run build`.
 ---
 
 You can also download this repository as a ZIP archive.
+
+## Ejecting the origin
+
+You will likely want to have your own origin for your project's repo. To remove the current origin from this repository run the following command:
+
+```bash
+git remote rm origin
+```
+
+Now you can connect the local repo to your cloud-based origin:
+
+```bash
+git remote add origin https://path-to-your-repo.git
+```
