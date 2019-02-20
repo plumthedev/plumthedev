@@ -24,6 +24,7 @@ PATHS:
   # Paths to Sass libraries, which can then be loaded with @import
   sass:
     - "node_modules/bootstrap/scss"
+    - "node_modules/motion-ui/src"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
     - "src/js/app.js"
