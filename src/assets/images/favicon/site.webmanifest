@@ -1,0 +1,19 @@
+{
+    "name": "ComPania Group",
+    "short_name": "ComPania Group",
+    "icons": [
+        {
+            "src": "/assets/images/favicon/android-chrome-192x192.png?v=OmJGeB0Mln",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/images/favicon/android-chrome-256x256.png?v=OmJGeB0Mln",
+            "sizes": "256x256",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
