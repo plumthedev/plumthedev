@@ -102,7 +102,7 @@ function sass() {
   ].filter(Boolean);
 
   return gulp
-    .src("src/scss/style.scss")
+    .src("src/scss/app.scss")
     .pipe($.sourcemaps.init())
     .pipe(
       $.sass({
@@ -112,7 +112,7 @@ function sass() {
     .pipe($.postcss(postCssPlugins))
     .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: "ie9" })))
     .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe(gulp.dest(PATHS.dist + "/"))
+    .pipe(gulp.dest(PATHS.dist + "/css"))
     .pipe(browser.reload({ stream: true }));
 }
 
