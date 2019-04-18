@@ -1,54 +1,25 @@
 {{!-- This is the base layout for your project, and will be used on every page unless specified. --}}
+<!doctype html>
+<html lang="en">
 
-<!DOCTYPE html>
-<html class="no-js" lang="pl">
   <head>
-    <title>New Project @ ComPania</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="{{ root }}/assets/images/favicon/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="{{ root }}/assets/images/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="{{ root }}/assets/images/favicon/favicon-16x16.png"
-    />
-    <link
-      rel="manifest"
-      href="{{ root }}/assets/images/favicon/site.webmanifest"
-    />
-    <link
-      rel="mask-icon"
-      href="{{ root }}/assets/images/favicon/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <link
-      rel="shortcut icon"
-      href="{{ root }}/assets/images/favicon/favicon.ico"
-    />
-    <meta name="msapplication-TileColor" content="#2b5797" />
-    <meta
-      name="msapplication-config"
-      content="{{ root }}/assets/images/favicon/browserconfig.xml"
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <link rel="stylesheet" href="{{ root }}/css/app.css" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Istok+Web:400,700|Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+    <link rel="stylesheet" href="{{ root }}/css/main.css" />
+    <title>plumthedev | Kacper Pruszyński - fullstack developer</title>
   </head>
+
   <body>
     {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
     {{> body}}
-
-    <script src="{{ root }}/js/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous" defer></script>
+    <script src="{{ root }}/js/main.js" defer></script>
   </body>
+
 </html>

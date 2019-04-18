@@ -109,7 +109,7 @@ function sass() {
    ].filter(Boolean);
 
    return gulp
-      .src("src/scss/app.scss")
+      .src("src/scss/main.scss")
       .pipe($.sourcemaps.init())
       .pipe(
          $.sass({
@@ -217,7 +217,7 @@ function watch() {
       .on("all", gulp.series(resetPages, pages, browser.reload));
    gulp.watch("src/scss/**/*.scss").on("all", sass);
    gulp
-      .watch("src/js/**/*.js")
+      .watch("src/scripts/**/*.js")
       .on("all", gulp.series(javascript, browser.reload));
    gulp
       .watch("src/assets/images/**/*")

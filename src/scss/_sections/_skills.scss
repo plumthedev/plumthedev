@@ -1,0 +1,84 @@
+.skills{
+    padding: 50px 0px;
+    background: #8e44ad;
+    overflow-x: hidden;
+    &__title{
+        font-weight: 700;
+        font-size: 48px;
+        color: #2c3e50;
+        margin-bottom: 50px;
+        font-family: 'Istok Web', sans-serif;
+        color: #ecf0f1;
+    }
+    &-single{
+        color: #ecf0f1;
+        font-family: 'Open Sans', sans-serif;
+        margin: 0px 0px 100px;
+        &:last-child{
+            margin-bottom: 50px;
+        }
+        &--right{
+            margin-left: auto;
+            margin-right: 0;
+        }
+        &--left{
+            margin-left: 0;
+            margin-right: auto;
+            .skills-single__info{
+                flex-direction: row-reverse;
+                text-align: right;
+            }
+            .skills-single__info-type{
+                &::after{
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: -8px;
+                    right: 0px;
+                    left: unset;
+                    height: 2px;
+                    width: 100vw;
+                    background: #fff;
+                }
+            }
+        }
+        &__icon{
+            font-size: 96px;
+        }
+        &__info{
+            justify-content: space-between;
+            align-items: center;
+            &-title{
+                font-family: 'Istok Web', sans-serif;
+                font-weight: 700;
+                font-size: 32px;
+                margin-bottom: 25px;
+            }
+            &-type{
+                text-transform: uppercase;
+                font-size: 12px;
+                font-weight: 300;
+                margin-bottom: 25px;
+                position: relative;
+                &::after{
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    top: -8px;
+                    left: 0px;
+                    height: 2px;
+                    width: 100vw;
+                    background: #fff;
+                }
+            }
+            &-desc{
+                font-size: 16px;
+                text-transform: uppercase;
+                text-align: justify;
+                letter-spacing: 0.3px;
+                line-height: 20px;
+                font-weight: 300;
+            }
+        }
+    }
+}
