@@ -14,6 +14,7 @@
         color: #ecf0f1;
         font-family: 'Open Sans', sans-serif;
         margin: 0px 0px 100px;
+        transition: all ease 0.01s;
         &:last-child{
             margin-bottom: 50px;
         }
@@ -37,13 +38,16 @@
                     right: 0px;
                     left: unset;
                     height: 2px;
-                    width: 100vw;
+                    width: 0vw;
                     background: #fff;
+                    transition: all ease 1s;
                 }
             }
         }
         &__icon{
             font-size: 96px;
+            display: block;
+            transform: scale(0);
         }
         &__info{
             justify-content: space-between;
@@ -67,8 +71,9 @@
                     top: -8px;
                     left: 0px;
                     height: 2px;
-                    width: 100vw;
+                    width: 0vw;
                     background: #fff;
+                    transition: all ease 1s;
                 }
             }
             &-desc{
@@ -78,6 +83,30 @@
                 letter-spacing: 0.3px;
                 line-height: 20px;
                 font-weight: 300;
+            }
+        }
+        &.skill-anim{
+            &-show{
+                .skills-single__icon{
+                    @include anim(0.3s, forwards, ease, bounce-in);
+                }
+                .skills-single__info-type{
+                    &::after{
+                        width: 100vw;
+                    }
+                }
+            }
+
+            &-hide{
+                .skills-single__icon{
+                    @include anim(0.3s, forwards, ease, bounce-out);
+                }
+
+                .skills-single__info-type{
+                    &::after{
+                        width: 0vw;
+                    }
+                }
             }
         }
     }

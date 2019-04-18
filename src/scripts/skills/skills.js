@@ -1,5 +1,20 @@
+import SingleSkill from "./skills-single";
+
 export default class Skills{
-    sayHello(){
-        console.log('hello');
+    constructor(skillsElement){
+        this.skillsElement = skillsElement;
+        this.allSkillsElements = [];
+        this.allSkills = [];
+
+        this.collectAllSkills.call(this);
     }
+
+    collectAllSkills(){
+        this.allSkillsElements = this.skillsElement.querySelectorAll('.skills-single');
+
+        this.allSkillsElements.forEach((skillElement) => {
+            this.allSkills.push(new SingleSkill(skillElement))
+        });
+    }
+
 }
