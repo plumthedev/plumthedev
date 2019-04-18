@@ -1,3 +1,11 @@
+/**
+ * Class about is responsible for manage anims in about section 
+ * 
+ * @version 1.0.0
+ * @author Kacper Pruszynski <contact@kacperpruszynski.pl>
+ * @class About
+ * @param {HTMLElement} aboutElement Element of section about
+ */
 export default class About{
 
     constructor(aboutElement){
@@ -7,24 +15,30 @@ export default class About{
         this.aboutElementOffset = this.aboutElement.offsetTop;
         this.aboutElementHeight = this.aboutElement.offsetHeight;
         this.lastWindowScroll = (this.aboutElementOffset - this.aboutElementHeight / 3);
+        this.backgroundPositionPercent = 50;
 
-        this.eventer = this.eventer.call(this);
-    }
-
-    eventer(){
         window.addEventListener('scroll', this.moveBackground.bind(this))
     }
 
+    /**
+     * Check is user in range of about section, calc how far and move backgorund of about
+     * 
+     */
     moveBackground(){
         if(this.isInRange()){
             this.calcProgress();
-            let backgroundPositionPercent = this.getBackgroundPositionPercent();
+            this.getBackgroundPositionPercent();
             
-            this.aboutElement.style.backgroundPositionY = `${backgroundPositionPercent}%`;
+            this.aboutElement.style.backgroundPositionY = `${this.backgroundPositionPercent}%`;
         }
 
     }
 
+    /**
+     * Check is user in range of about section
+     * 
+     * @return {Boolean} Is user in range 
+     */
     isInRange(){
         this.windowScrollY = window.scrollY;
         this.aboutElementOffset = this.aboutElement.offsetTop;
@@ -33,6 +47,9 @@ export default class About{
         return (this.windowScrollY > (this.aboutElementOffset - this.aboutElementHeight / 3) && this.windowScrollY < (this.aboutElementOffset + this.aboutElementHeight))
     }
 
+    /**
+     * Calc progress of user scroll
+     */
     calcProgress(){
         const start = this.aboutElementOffset - (this.aboutElementHeight / 3);
         const actual = this.windowScrollY - start;
@@ -43,7 +60,15 @@ export default class About{
         if(this.progress > 100) this.progress = 100;
     }
 
+    /**
+     * Calc percent of background position
+     */
     getBackgroundPositionPercent(){
-        return ((-150 + (this.progress * 5 )) > 100)? 100 : (-150 + (this.progress * 5 ));
+        let calc = -150 + (this.progress * 5 );
+
+        if(calc < -200) calc = -200;
+        if(calc > 100) calc = 100;
+
+        this.backgroundPositionPercent = calc;
     }
 }
