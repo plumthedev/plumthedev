@@ -120,7 +120,7 @@ function sass() {
       .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: "ie9" })))
       .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
       .pipe(cleanCSS({ compatibility: "ie8" }))
-      .pipe(gulp.dest(PATHS.dist + "/css"))
+      .pipe(gulp.dest(PATHS.dist + "/assets/css"))
       .pipe(browser.reload({ stream: true }));
 }
 
@@ -160,14 +160,14 @@ function javascript() {
          )
       )
       .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-      .pipe(gulp.dest(PATHS.dist + "/js"));
+      .pipe(gulp.dest(PATHS.dist + "/assets/js"));
 }
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
    return gulp
-      .src("src/assets/images/**/*")
+      .src("src/images/**/*")
       .pipe(
          $.if(
             PRODUCTION,

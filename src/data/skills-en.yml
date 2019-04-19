@@ -1,0 +1,48 @@
+- 
+  side: right
+  icon: devicon-php-plain
+  name: PHP
+  type: backend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: left
+  icon: devicon-javascript-plain
+  name: JavaScript
+  type: frontend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: right
+  icon: devicon-nodejs-plain
+  name: Node.js
+  type: backend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: left
+  icon: devicon-gulp-plain
+  name: gulp.js
+  type: frontend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+-
+  side: right
+  icon: devicon-wordpress-plain
+  name: WordPress
+  type: backend / frontend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: left
+  icon: devicon-sass-original
+  name: CSS3 & friends
+  type: frontend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: right
+  icon: devicon-mysql-plain
+  name: MySQL
+  type: backend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.
+- 
+  side: left
+  icon: devicon-html5-plain
+  name: HTML5 & friends
+  type: frontend
+  content: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, elit.

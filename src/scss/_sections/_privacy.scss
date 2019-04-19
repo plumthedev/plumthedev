@@ -1,0 +1,14 @@
+.privacy{
+    padding: 50px 0px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #ecf0f1;
+    p{
+        text-align: justify;
+        margin: 0px 0px 25px;
+        line-height: 22px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}

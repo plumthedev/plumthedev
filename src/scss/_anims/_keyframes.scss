@@ -46,3 +46,9 @@
         color: #ecf0f1;
     }
 }
+
+@keyframes baner-swim {
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }
