@@ -8,23 +8,32 @@
         color: #2c3e50;
         margin-bottom: 50px;
         font-family: 'Istok Web', sans-serif;
-        color: #ecf0f1;
+        background: #ecf0f1;
+        color: #8e44ad;
+        display: inline-block;
+        padding: 10px;
     }
     &-single{
         color: #ecf0f1;
         font-family: 'Open Sans', sans-serif;
         margin: 0px 0px 100px;
-        transition: all ease 0.01s;
+        transition: all ease 1s;
         &:last-child{
             margin-bottom: 50px;
         }
         &--right{
+            .skills-single__info-title{
+                right: -150%;
+            }
             margin-left: auto;
             margin-right: 0;
         }
         &--left{
             margin-left: 0;
             margin-right: auto;
+            .skills-single__info-title{
+                left: -150%;
+            }
             .skills-single__info{
                 flex-direction: row-reverse;
                 text-align: right;
@@ -53,12 +62,12 @@
             justify-content: space-between;
             align-items: center;
             &-title{
+                opacity: 0;
                 font-family: 'Istok Web', sans-serif;
                 font-weight: 700;
                 font-size: 32px;
                 margin-bottom: 25px;
                 position: relative;
-                opacity: 0;
             }
             &-type{
                 text-transform: uppercase;
@@ -66,6 +75,7 @@
                 font-weight: 300;
                 margin-bottom: 25px;
                 position: relative;
+                color: #8e44ad;
                 &::after{
                     content: '';
                     position: absolute;
@@ -85,6 +95,7 @@
                 letter-spacing: 0.3px;
                 line-height: 20px;
                 font-weight: 300;
+                opacity: 0;
             }
         }
         &.skill-anim{
@@ -93,9 +104,13 @@
                     @include anim(0.3s, forwards, ease, bounce-in);
                 }
                 .skills-single__info-type{
+                    @include anim(0.3s, forwards, ease, show-up-color, 0.3s);
                     &::after{
                         width: 100vw;
                     }
+                }
+                .skills-single__info-desc{
+                    @include anim(0.3s, forwards, ease, show-up, 0.3s);
                 }
             }
         }

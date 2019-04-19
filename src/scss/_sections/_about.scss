@@ -6,7 +6,7 @@
     background-size: cover;
     background-position-y: -150%;
     background-repeat: no-repeat;
-    transition: all ease .01s;
+    transition: all ease .2s;
     padding: 50px 0px;
     &__text{
         font-size: 18px;
@@ -22,7 +22,11 @@
             font-weight: 700;
             font-size: 48px;
             color: #2c3e50;
-            margin-bottom: 75px;
+            margin-bottom: 55px;
+            background: #8e44ad;
+            color: #ecf0f1;
+            display: inline-block;
+            padding: 10px;
         }
     }
 }
