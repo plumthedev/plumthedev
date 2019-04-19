@@ -7,15 +7,6 @@
     }
 }
 
-@keyframes bounce-out{
-    from{
-        transform: scale(1);
-    }
-    to{
-        transform: scale(0);
-    }
-}
-
 @keyframes slide-in-left{
     from{
         left: -150%;
@@ -24,17 +15,6 @@
     to{
         left: 0;
         opacity: 1;
-    }
-}
-
-@keyframes slide-out-left{
-    from{
-        left: 0;
-        opacity: 1;
-    }
-    to{
-        left: -150%;
-        opacity: 0;
     }
 }
 
@@ -49,7 +29,7 @@
     }
 }
 
-@keyframes slide-out-right{
+@keyframes show-up{
     from{
         right: 0;
         opacity: 1;

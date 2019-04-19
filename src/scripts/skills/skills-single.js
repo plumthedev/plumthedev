@@ -58,7 +58,7 @@ export default class SingleSkill{
     }
 
     getTranslateYPercent(){
-        let calc = (this.progress + 15);
+        let calc = (this.progress + 5);
 
         if(calc <= -40) calc = -40;
         if(calc > 40) calc = 40;
