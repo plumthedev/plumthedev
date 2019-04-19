@@ -19,7 +19,7 @@ export default class SingleSkill{
     }
 
     move(){
-        if(this.canMove()){
+        if(this.canMove() && window.innerWidth > 768){
             this.calcProgress();
             this.getTranslateYPercent();
 

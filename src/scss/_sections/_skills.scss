@@ -22,6 +22,16 @@
         font-family: 'Open Sans', sans-serif;
         margin: 0px 0px 100px;
         transition: all ease 1s;
+        @media screen and (max-width: 768px){
+            .skills-single__info-type{
+                &::after{
+                    width: 100% !important;
+                }
+            }
+            &__icon{
+                margin-bottom: 25px;
+            }
+        }
         &:last-child{
             margin-bottom: 50px;
         }
