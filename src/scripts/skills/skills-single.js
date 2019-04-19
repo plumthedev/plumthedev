@@ -29,7 +29,7 @@ export default class SingleSkill{
         if(this.isVisible()){
             this.addAnimationClasses('skill-anim-hide', 'skill-anim-show');
         }else{
-            this.addAnimationClasses('skill-anim-show', 'skill-anim-hide');
+            // this.addAnimationClasses('skill-anim-show', 'skill-anim-hide');
         }
     }
 
@@ -44,7 +44,7 @@ export default class SingleSkill{
     }
 
     isVisible(){
-        const actualScreenPostion = this.windowScrollY + (window.innerHeight * 0.75);
+        const actualScreenPostion = this.windowScrollY + (window.innerHeight);
 
         return (actualScreenPostion > this.skillElementOffset && actualScreenPostion < this.skillElementOffset + window.innerHeight + this.skillElementHeight)
     }
@@ -60,7 +60,7 @@ export default class SingleSkill{
     }
 
     getTranslateYPercent(){
-        let calc = (this.progress + 10);
+        let calc = (this.progress + 25);
 
         if(calc <= -40) calc = -40;
         if(calc > 40) calc = 40;

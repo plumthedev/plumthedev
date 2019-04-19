@@ -15,3 +15,47 @@
         transform: scale(0);
     }
 }
+
+@keyframes slide-in-left{
+    from{
+        left: -150%;
+        opacity: 0;
+    }
+    to{
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out-left{
+    from{
+        left: 0;
+        opacity: 1;
+    }
+    to{
+        left: -150%;
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in-right{
+    from{
+        right: -150%;
+        opacity: 0;
+    }
+    to{
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-out-right{
+    from{
+        right: 0;
+        opacity: 1;
+    }
+    to{
+        right: -150%;
+        opacity: 0;
+    }
+}

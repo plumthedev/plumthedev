@@ -40,7 +40,7 @@
                     height: 2px;
                     width: 0vw;
                     background: #fff;
-                    transition: all ease 1s;
+                    transition: all ease 0.5s;
                 }
             }
         }
@@ -57,6 +57,8 @@
                 font-weight: 700;
                 font-size: 32px;
                 margin-bottom: 25px;
+                position: relative;
+                opacity: 0;
             }
             &-type{
                 text-transform: uppercase;
@@ -101,10 +103,39 @@
                 .skills-single__icon{
                     @include anim(0.3s, forwards, ease, bounce-out);
                 }
-
                 .skills-single__info-type{
                     &::after{
                         width: 0vw;
+                    }
+                }
+            }
+        }
+        &--right{
+            &.skill-anim{
+                &-show{
+                    .skills-single__info-title{
+                        @include anim(0.5s, forwards, ease-out, slide-in-right);
+                    }
+                }
+    
+                &-hide{
+                    .skills-single__info-title{
+                        @include anim(0.5s, forwards, ease-out, slide-out-right);
+                    }
+                }
+            }
+        }
+        &--left{
+            &.skill-anim{
+                &-show{
+                    .skills-single__info-title{
+                        @include anim(0.5s, forwards, ease-out, slide-in-left);
+                    }
+                }
+    
+                &-hide{
+                    .skills-single__info-title{
+                        @include anim(0.5s, forwards, ease-out, slide-out-left);
                     }
                 }
             }
