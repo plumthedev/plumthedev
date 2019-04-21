@@ -187,6 +187,7 @@ function images() {
 function server(done) {
    browser.init(
       {
+         startPath: '/pl',
          server: PATHS.dist,
          port: PORT
       },

@@ -10,7 +10,7 @@ export default class Skills{
     }
 
     collectAllSkills(){
-        this.allSkillsElements = this.skillsElement.querySelectorAll('.skills-single');
+        this.allSkillsElements = this.skillsElement.querySelectorAll('.skills__list-item');
 
         this.allSkillsElements.forEach((skillElement) => {
             this.allSkills.push(new SingleSkill(skillElement))

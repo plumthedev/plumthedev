@@ -18,34 +18,21 @@
             text-align: left;
         }
     }
-    &__link{
-        display: block;
-        text-align: center;
-        font-size: 20px;
-        color: #2c3e50;
-        @media only screen and (max-width: 768px) {
-            margin: 0px 0px 25px;
-        }
-        &--copyright{
-            font-size: 14px;
-            display: inline-block;
-            margin: 0;
-        }
-        &:hover{
-            color: #2c3e50;
-        }
-    }
-    &__copyright{
-        font-size: 14px;
-        &--award{
-            font-weight: 700;
-            color: #8e44ad;
-        }
-    }
-    &__info-row{
+    &__nav{
         margin: 0px auto 50px;
-        &:last-child{
-            margin-bottom: 0;
+        &__list-item{
+            @media only screen and (max-width: 768px) {
+                margin: 0px 0px 25px;
+            }
+            &__link{
+                text-align: center;
+                font-size: 20px;
+                color: #2c3e50;
+        
+                &:hover{
+                    color: #2c3e50;
+                }
+            }
         }
     }
 }

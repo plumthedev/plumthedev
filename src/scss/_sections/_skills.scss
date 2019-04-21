@@ -1,8 +1,9 @@
-.skills{
+.skills {
     padding: 50px 0px;
     background: #8e44ad;
     overflow-x: hidden;
-    &__title{
+
+    &__title {
         font-weight: 700;
         font-size: 48px;
         color: #2c3e50;
@@ -12,135 +13,157 @@
         color: #8e44ad;
         display: inline-block;
         padding: 10px;
-        @media screen and (max-width: 768px){
+
+        @media screen and (max-width: 768px) {
             font-size: 32px;
             text-align: left;
         }
     }
-    &-single{
-        color: #ecf0f1;
-        font-family: 'Open Sans', sans-serif;
-        margin: 0px 0px 100px;
-        transition: all ease 1s;
-        @media screen and (max-width: 768px){
-            .skills-single__info-type{
-                &::after{
-                    width: 100% !important;
-                }
-            }
-            &__icon{
-                margin-bottom: 25px;
-            }
-        }
-        &:last-child{
-            margin-bottom: 50px;
-        }
-        &--right{
-            .skills-single__info-title{
-                right: -150%;
-            }
-            margin-left: auto;
-            margin-right: 0;
-        }
-        &--left{
-            margin-left: 0;
-            margin-right: auto;
-            .skills-single__info-title{
-                left: -150%;
-            }
-            .skills-single__info{
-                flex-direction: row-reverse;
-                text-align: right;
-            }
-            .skills-single__info-type{
-                &::after{
-                    content: '';
-                    position: absolute;
-                    display: block;
-                    top: -8px;
-                    right: 0px;
-                    left: unset;
-                    height: 2px;
-                    width: 0vw;
-                    background: #fff;
-                    transition: all ease 0.5s;
-                }
-            }
-        }
-        &__icon{
-            font-size: 96px;
-            display: block;
-            transform: scale(0);
-        }
-        &__info{
+
+    &__list {
+        &-item {
+            color: #ecf0f1;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0px 0px 100px;
+            transition: all ease 1s;
             justify-content: space-between;
             align-items: center;
-            &-title{
-                opacity: 0;
-                font-family: 'Istok Web', sans-serif;
-                font-weight: 700;
-                font-size: 32px;
-                margin-bottom: 25px;
-                position: relative;
-            }
-            &-type{
-                text-transform: uppercase;
-                font-size: 12px;
-                font-weight: 300;
-                margin-bottom: 25px;
-                position: relative;
-                color: #8e44ad;
-                &::after{
-                    content: '';
-                    position: absolute;
+
+            &__info {
+                justify-content: space-between;
+                &__icon {
+                    font-size: 96px;
                     display: block;
-                    top: -8px;
-                    left: 0px;
-                    height: 2px;
-                    width: 0vw;
-                    background: #fff;
-                    transition: all ease 1s;
+                    transform: scale(0);
                 }
-            }
-            &-desc{
-                font-size: 16px;
-                text-transform: uppercase;
-                text-align: justify;
-                letter-spacing: 0.3px;
-                line-height: 20px;
-                font-weight: 300;
-                opacity: 0;
-            }
-        }
-        &.skill-anim{
-            &-show{
-                .skills-single__icon{
-                    @include anim(0.3s, forwards, ease, bounce-in);
+
+                &__title {
+                    opacity: 0;
+                    font-family: 'Istok Web', sans-serif;
+                    font-weight: 700;
+                    font-size: 32px;
+                    margin-bottom: 25px;
+                    position: relative;
                 }
-                .skills-single__info-type{
-                    @include anim(0.3s, forwards, ease, show-up-color, 0.3s);
-                    &::after{
-                        width: 100vw;
+
+                &__type {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                    font-weight: 300;
+                    margin-bottom: 25px;
+                    position: relative;
+                    color: #8e44ad;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        top: -8px;
+                        left: 0px;
+                        height: 2px;
+                        width: 0vw;
+                        background: #fff;
+                        transition: all ease 1s;
                     }
                 }
-                .skills-single__info-desc{
-                    @include anim(0.3s, forwards, ease, show-up, 0.3s);
+
+                &__desc {
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    text-align: justify;
+                    letter-spacing: 0.3px;
+                    line-height: 20px;
+                    font-weight: 300;
+                    opacity: 0;
+                }
+
+                @media screen and (max-width: 768px) {
+                    &_type {
+                        &::after {
+                            width: 100% !important;
+                        }
+                    }
+    
+                    &__icon {
+                        margin-bottom: 25px;
+                    }
                 }
             }
-        }
-        &--right{
-            &.skill-anim{
-                &-show{
-                    .skills-single__info-title{
+
+            &:last-child {
+                margin-bottom: 50px;
+            }
+
+            &--right {
+
+                .skills__list-item__info__title {
+                    right: -150%;
+                }
+
+                margin-left: auto;
+                margin-right: 0;
+            }
+
+            &--left {
+                margin-left: 0;
+                margin-right: auto;
+                .skills__list-item__info{
+                    flex-direction: row-reverse;
+                    text-align: right;
+                }
+
+                .skills__list-item__info__title {
+                    left: -150%;
+                }
+
+                .skills__list-item__info__type {
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        top: -8px;
+                        right: 0px;
+                        left: unset;
+                        height: 2px;
+                        width: 0vw;
+                        background: #fff;
+                        transition: all ease 0.5s;
+                    }
+                }
+            }
+
+            // anims for skills section here
+            &.skill-anim-show {
+                .skills__list-item__info {
+                    &__icon {
+                        @include anim(0.3s, forwards, ease, bounce-in);
+                    }
+
+                    &__type {
+                        @include anim(0.3s, forwards, ease, show-up-color, 0.3s);
+
+                        &::after {
+                            width: 100vw;
+                        }
+                    }
+
+                    &__desc {
+                        @include anim(0.3s, forwards, ease, show-up, 0.3s);
+                    }
+                }
+            }
+
+            &--right {
+                &.skill-anim-show {
+                    .skills__list-item__info__title {
                         @include anim(0.5s, forwards, ease-out, slide-in-right);
                     }
                 }
             }
-        }
-        &--left{
-            &.skill-anim{
-                &-show{
-                    .skills-single__info-title{
+
+            &--left {
+                &.skill-anim-show {
+                    .skills__list-item__info__title {
                         @include anim(0.5s, forwards, ease-out, slide-in-left);
                     }
                 }

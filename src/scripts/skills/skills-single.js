@@ -63,7 +63,7 @@ export default class SingleSkill{
         if(calc <= -40) calc = -40;
         if(calc > 40) calc = 40;
 
-        if(this.skillElement.classList.contains('skills-single--right')){
+        if(this.skillElement.classList.contains('skills__list-item--right')){
             calc = calc * -1;
         }
         this.translateYPercent = calc;
