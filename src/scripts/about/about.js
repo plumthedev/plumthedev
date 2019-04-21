@@ -18,6 +18,7 @@ export default class About{
         this.backgroundPositionPercent = 50;
 
         window.addEventListener('scroll', this.moveBackground.bind(this))
+        document.getElementById('scroll-to-about').addEventListener('click', this.scrollToSection.bind(this));
     }
 
     /**
@@ -41,8 +42,6 @@ export default class About{
      */
     isInRange(){
         this.windowScrollY = window.scrollY;
-        this.aboutElementOffset = this.aboutElement.offsetTop;
-        this.aboutElementHeight = this.aboutElement.offsetHeight;
 
         return (this.windowScrollY > (this.aboutElementOffset - this.aboutElementHeight / 3) && this.windowScrollY < (this.aboutElementOffset + this.aboutElementHeight))
     }
@@ -58,6 +57,17 @@ export default class About{
         this.progress = Math.round((actual / end) * 100);
         if(this.progress < 0) this.progress = 0;
         if(this.progress > 100) this.progress = 100;
+    }
+
+    scrollToSection(){
+        this.windowScrollY = window.scrollY;
+        history.pushState(null,null,'#about');
+
+        window.scroll({
+            top: this.aboutElementOffset, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
     }
 
     /**
