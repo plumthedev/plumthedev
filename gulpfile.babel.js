@@ -14,6 +14,7 @@ import named from "vinyl-named";
 import autoprefixer from "autoprefixer";
 import htmlmin from "gulp-htmlmin";
 import cleanCSS from "gulp-clean-css";
+import WorkboxPlugin from 'workbox-webpack-plugin';
 // import sherpa from "style-sherpa";
 // import uncss         from 'uncss';
 
@@ -140,6 +141,31 @@ let webpackConfig = {
          }
       ]
    },
+   plugins: [
+      new WorkboxPlugin.GenerateSW({
+         // Exclude images from the precache
+         exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+   
+         // Define runtime caching rules.
+         runtimeCaching: [{
+           // Match any request ends with .png, .jpg, .jpeg or .svg.
+           urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+   
+           // Apply a cache-first strategy.
+           handler: 'CacheFirst',
+   
+           options: {
+             // Use a custom cache name.
+             cacheName: 'images',
+   
+             // Only cache 10 images.
+             expiration: {
+               maxEntries: 10,
+             },
+           },
+         }],
+       })
+   ],
    devtool: !PRODUCTION && "source-map"
 };
 
