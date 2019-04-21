@@ -78,7 +78,7 @@
                 }
 
                 @media screen and (max-width: 768px) {
-                    &_type {
+                    &__type {
                         &::after {
                             width: 100% !important;
                         }
