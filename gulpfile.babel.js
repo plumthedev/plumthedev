@@ -148,7 +148,7 @@ let webpackConfig = {
            urlPattern: /\.(?:png|jpg|jpeg|svg|html|css|js)$/,
            handler: 'CacheFirst',
            options: {
-             cacheName: 'images',
+             cacheName: 'plumthedev',
              expiration: {
                maxEntries: 25,
              },
@@ -167,14 +167,14 @@ function javascript() {
       .pipe(named())
       .pipe($.sourcemaps.init())
       .pipe(webpackStream(webpackConfig, webpack2))
-      .pipe(
-         $.if(
-            PRODUCTION,
-            $.uglify().on("error", e => {
-               console.log(e);
-            })
-         )
-      )
+      // .pipe(
+      //    $.if(
+      //       PRODUCTION,
+      //       $.uglify().on("error", e => {
+      //          console.log(e);
+      //       })
+      //    )
+      // )
       .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
       .pipe(gulp.dest(PATHS.dist + "/assets/js"));
 }
