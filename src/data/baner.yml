@@ -1,0 +1,9 @@
+language:
+  pl:
+    titleText: "plumthedev"
+    helloText: "¡Hola! co słychać?"
+    buttonText: "poznaj mnie"
+  en:
+    titleText: "plumthedev"
+    helloText: "¡Hola! what's up?"
+    buttonText: "meet me"
