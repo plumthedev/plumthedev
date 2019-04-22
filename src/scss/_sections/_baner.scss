@@ -14,6 +14,9 @@
 		@media screen and (max-width: 768px){
 			transform: scale(3.5);
 		}
+		@media screen and (max-width: 1200px){
+			transform: scale(4.5);
+		}
 		&-path{
 			stroke-dasharray: 100;
 			@include anim(2s, linear, alternate infinite, baner-swim );
