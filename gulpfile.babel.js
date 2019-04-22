@@ -143,14 +143,13 @@ let webpackConfig = {
    },
    plugins: [
       new WorkboxPlugin.GenerateSW({
-         exclude: [/\.(?:png|jpg|jpeg|svg|html|css|js)$/],
          runtimeCaching: [{
            urlPattern: /\.(?:png|jpg|jpeg|svg|html|css|js)$/,
            handler: 'CacheFirst',
            options: {
              cacheName: 'plumthedev',
              expiration: {
-               maxEntries: 25,
+               maxEntries: 50,
              },
            },
          }],
