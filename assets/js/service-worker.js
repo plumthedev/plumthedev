@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.0/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.870d42406272213b6d5be017dabe759a.js"
+  "precache-manifest.fe8a03ecf40abf836d1d59e3cedc8567.js"
 );
 
 self.addEventListener('message', (event) => {
@@ -31,4 +31,4 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg|html|css|js)$/, new workbox.strategies.CacheFirst({ "cacheName":"plumthedev", plugins: [new workbox.expiration.Plugin({ maxEntries: 25, purgeOnQuotaError: false })] }), 'GET');
+workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg|html|css|js)$/, new workbox.strategies.CacheFirst({ "cacheName":"plumthedev", plugins: [new workbox.expiration.Plugin({ maxEntries: 50, purgeOnQuotaError: false })] }), 'GET');
