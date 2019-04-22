@@ -144,7 +144,7 @@ let webpackConfig = {
    plugins: [
       new WorkboxPlugin.GenerateSW({
          runtimeCaching: [{
-           urlPattern: /\.(?:png|jpg|jpeg|svg|html|css|js)$/,
+           include: [/\.html$/, /\.js$/, /\.css$/],
            handler: 'CacheFirst',
            options: {
              cacheName: 'plumthedev',
