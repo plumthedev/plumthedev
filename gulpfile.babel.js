@@ -142,19 +142,18 @@ let webpackConfig = {
       ]
    },
    plugins: [
-      new WorkboxPlugin.GenerateSW({
-         exclude: [/\.(?:png|jpg|jpeg|svg|html|css|js)$/],
-         runtimeCaching: [{
-           urlPattern: /\.(?:png|jpg|jpeg|svg|html|css|js)$/,
-           handler: 'CacheFirst',
-           options: {
-             cacheName: 'plumthedev',
-             expiration: {
-               maxEntries: 25,
-             },
-           },
-         }],
-       })
+      // new WorkboxPlugin.GenerateSW({
+      //    runtimeCaching: [{
+      //      urlPattern: '*',
+      //      handler: 'CacheFirst',
+      //      options: {
+      //        cacheName: 'plumthedev',
+      //        expiration: {
+      //          maxEntries: 25,
+      //        },
+      //      },
+      //    }],
+      //  })
    ],
    devtool: !PRODUCTION && "source-map"
 };
