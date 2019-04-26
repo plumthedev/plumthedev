@@ -1,31 +1,19 @@
 language:
   pl:
-    copyright: "W kontakcie"
-    contactLinks:
-      -
-        link: "https://github.com/plumthedev"
-        title: "github"
-      -
-        link: "https://www.linkedin.com/in/plumthedev"
-        title: "linkedin"
-      -
-        link: "https://twitter.com/plumthedev"
-        title: "twitter"
-      -
-        link: "https://www.reddit.com/user/plumthedev"
-        title: "reddit"
+    default:
+      anchor:
+        reference: "/pl/ochrona-danych-osobowych.html"
+        value: "Ochrona Danych Osobowych"
+    privacy:
+      anchor:
+        reference: "/pl/"
+        value: "Wróć na stronę główną"
   en:
-    titleText: "In touch"
-    contactLinks:
-      -
-        link: "https://github.com/plumthedev"
-        title: "github"
-      -
-        link: "https://www.linkedin.com/in/plumthedev"
-        title: "linkedin"
-      -
-        link: "https://twitter.com/plumthedev"
-        title: "twitter"
-      -
-        link: "https://www.reddit.com/user/plumthedev"
-        title: "reddit"
+    default:
+      anchor:
+        reference: "/en/data-protection-information.html"
+        value: "Data Protection Information"
+    privacy:
+      anchor:
+        reference: "/en/"
+        value: "Back to the main page"

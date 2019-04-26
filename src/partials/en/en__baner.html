@@ -1,5 +1,5 @@
 <section class="baner">
-   <svg class="baner__background" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+      <svg class="baner__background" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1080 720"
       style="enable-background:new 0 0 1080 720;" xml:space="preserve">
       <style type="text/css">
@@ -1059,16 +1059,13 @@
          </g>
       </g>
    </svg>
-
-   <div class="container">
-      <div class="row">
-         <div class="col-12">
-            <h1 class="baner__text baner__text--name">
-               plumthedev
-            </h1>
-            <p class="baner__text baner__text--welcome">¡Hola! what's up?</p>
-            <button class="btn btn--classic">meet me</button>
-         </div>
-      </div>
-   </div>
-</section>
+    <div class="container">
+       <div class="row">
+          <div class="col-12">
+             <h1 class="baner__text baner__text--name">{{ baner.language.en.titleText }}</h1>
+             <p class="baner__text baner__text--welcome">{{ baner.language.en.helloText }}</p>
+             <button class="btn btn--classic" id="scroll-to-about">{{ baner.language.en.buttonText }}</button>
+          </div>
+       </div>
+    </div>
+ </section>

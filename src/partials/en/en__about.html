@@ -2,13 +2,10 @@
     <div class="container">
        <div class="row">
           <div class="col-12">
-             <h2 class="about__text about__text--hello">Hi I am Kacper and I am programmer.</h2>
-             <p class="about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa, maxime rerum
-                animi cum vel aliquam perferendis. Temporibus sequi quisquam commodi numquam, modi, nostrum tempora
-                aliquid maiores, nemo asperiores quis?</p>
-             <p class="about__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa ipsa, maxime rerum
-                animi cum vel aliquam perferendis. Temporibus sequi quisquam commodi numquam, modi, nostrum tempora
-                aliquid maiores, nemo asperiores quis?</p>
+             <h2 class="about__text about__text--hello">{{ about.language.en.titleText }}</h2>
+            {{#each about.language.en.aboutTextes }}
+               <p class="about__text">{{ this }}</p>
+            {{/each}}
           </div>
        </div>
     </div>

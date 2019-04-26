@@ -1,29 +1,20 @@
 <section class="contact" id="contact">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="contact__title">In touch</h2>
-            </div>
-            <div class="col-6 offset-3 contact__info-row">
-                <div class="row">
-                    <div class="col-3"><a href="https://github.com/plumthedev" class="contact__link">github</a></div>
-                    <div class="col-3"><a href="https://www.linkedin.com/in/plumthedev"
-                            class="contact__link">linkedin</a></div>
-                    <div class="col-3"><a href="https://twitter.com/plumthedev" class="contact__link">twitter</a></div>
-                    <div class="col-3"><a href="https://www.reddit.com/user/plumthedev" class="contact__link">reddit</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 contact__info-row">
-                <div class="row">
-                    <div class="col-6 text-left">
-                        <p class="contact__copyright">created with <span
-                                class="contact__copyright--award">plumming</span> love to code</p>
-                    </div>
-                    <div class="col-6 text-right"><a href="/en/" class="contact__link contact__link--copyright">Return to the main page</a></div>
-                </div>
-            </div>
-        </div>
+       <div class="row">
+          <div class="col-12">
+             <h2 class="contact__title">{{ contact.language.en.titleText }}</h2>
+          </div>
+          <nav class="col-sm-12 col-md-6 offset-md-3 contact__nav">
+             <ul class="row contact__nav__list">
+                {{#each contact.language.en.contactLinks}}
+                   <li class="col-sm-12 col-md-3 text-center contact__nav__list-item">
+                         <a href="{{this.link}}" class="contact__nav__list-item__link">{{ this.title }}</a>
+                   </li>
+                {{/each}}
+             </ul>
+          </nav>
+          {{> en__dpi__footer }}
+       </div>
     </div>
     </div>
-</section>
+ </section>
