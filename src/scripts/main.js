@@ -9,4 +9,4 @@ if(about){
 }
 if(skills){
     (new Skills(skills))
-}s
+}
