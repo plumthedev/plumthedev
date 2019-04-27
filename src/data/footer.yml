@@ -6,7 +6,7 @@ language:
         value: "Ochrona Danych Osobowych"
     privacy:
       anchor:
-        reference: "/pl/"
+        reference: "/"
         value: "Wróć na stronę główną"
   en:
     default:
@@ -15,5 +15,5 @@ language:
         value: "Data Protection Information"
     privacy:
       anchor:
-        reference: "/en/"
+        reference: "/"
         value: "Back to the main page"
