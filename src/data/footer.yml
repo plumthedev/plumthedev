@@ -2,7 +2,7 @@ language:
   pl:
     default:
       anchor:
-        reference: "/pl/ochrona-danych-osobowych.html"
+        reference: "/ochrona-danych-osobowych.html"
         value: "Ochrona Danych Osobowych"
     privacy:
       anchor:
@@ -11,7 +11,7 @@ language:
   en:
     default:
       anchor:
-        reference: "/en/data-protection-information.html"
+        reference: "/data-protection-information.html"
         value: "Data Protection Information"
     privacy:
       anchor:

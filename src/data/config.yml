@@ -1,0 +1,9 @@
+address: https://plumthedev.github.io/plumthedev
+charset: utf-8
+language:
+  pl:
+    lang: pl
+    title: plumthedev | Kacper Pruszyński - fullstack developer
+  en:
+    lang: en
+    title: plumthedev | Kacper Pruszynski - fullstack developer

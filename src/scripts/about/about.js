@@ -6,6 +6,7 @@
  * @class About
  * @param {HTMLElement} aboutElement Element of section about
  */
+
 export default class About{
 
     constructor(aboutElement){

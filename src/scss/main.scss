@@ -1,8 +1,12 @@
 @import '_includes/reset';
-@import '_anims/keyframes';
-@import '_anims/mixins';
-@import '_includes/buttons';
+@import 'bootstrap';
 
+@import '_anims/mixins';
+@import '_anims/keyframes';
+@import '_mixins/font-face';
+@import '_includes/fonts';
+
+@import '_includes/buttons';
 @import '_sections/lang-switcher.scss';
 @import '_sections/baner';
 @import '_sections/about';
