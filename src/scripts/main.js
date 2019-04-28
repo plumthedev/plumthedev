@@ -21,7 +21,7 @@ class Main{
     }
 
     nodeExist(node){
-        return Boolean(node)
+        return Boolean(document.body.contains(node));
     }
 
     getSkills(){

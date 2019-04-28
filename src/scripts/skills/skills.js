@@ -16,5 +16,4 @@ export default class Skills{
             this.allSkills.push(new SingleSkill(skillElement))
         });
     }
-
 }

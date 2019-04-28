@@ -1,4 +1,5 @@
 export default class SingleSkill{
+    
     constructor(skillElement){
         this.skillElement = skillElement;
         this.windowScrollY = window.scrollY;

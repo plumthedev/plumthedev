@@ -1,12 +1,3 @@
-/**
- * Class about is responsible for manage anims in about section 
- * 
- * @version 1.0.0
- * @author Kacper Pruszynski <contact@kacperpruszynski.pl>
- * @class About
- * @param {HTMLElement} aboutElement Element of section about
- */
-
 export default class About{
 
     constructor(aboutElement){
@@ -18,14 +9,19 @@ export default class About{
         this.lastWindowScroll = (this.aboutElementOffset - this.aboutElementHeight / 3);
         this.backgroundPositionPercent = 50;
 
-        window.addEventListener('scroll', this.moveBackground.bind(this))
-        document.getElementById('scroll-to-about').addEventListener('click', this.scrollToSection.bind(this));
+        this.eventer.call(this);
     }
 
-    /**
-     * Check is user in range of about section, calc how far and move backgorund of about
-     * 
-     */
+    eventer(){
+        window.addEventListener('scroll', this.moveBackground.bind(this))
+        document.getElementById('scroll-to-about').addEventListener('click', this.scrollToSection.bind(this));
+        window.addEventListener('load', () => {
+            if(window.location.hash == '#about'){
+                this.scrollToSection();
+            }
+        })
+    }
+
     moveBackground(){
         if(this.isInRange()){
             this.calcProgress();
@@ -36,20 +32,12 @@ export default class About{
 
     }
 
-    /**
-     * Check is user in range of about section
-     * 
-     * @return {Boolean} Is user in range 
-     */
     isInRange(){
         this.windowScrollY = window.scrollY;
 
         return (this.windowScrollY > (this.aboutElementOffset - this.aboutElementHeight / 3) && this.windowScrollY < (this.aboutElementOffset + this.aboutElementHeight))
     }
 
-    /**
-     * Calc progress of user scroll
-     */
     calcProgress(){
         const start = this.aboutElementOffset - (this.aboutElementHeight / 3);
         const actual = this.windowScrollY - start;
@@ -71,9 +59,6 @@ export default class About{
           });
     }
 
-    /**
-     * Calc percent of background position
-     */
     getBackgroundPositionPercent(){
         let calc = -150 + (this.progress * 5 );
 

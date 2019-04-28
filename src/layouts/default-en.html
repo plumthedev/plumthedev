@@ -1,19 +1,26 @@
 <!doctype html>
 <html lang="{{ config.charset }}">
 
-<head>
-	<meta charset="{{ config.charset }}">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="canonical" href="https://plumthedev.github.io/plumthedev/en/">
-	<link rel="dns-prefetch" href="https://cdn.rawgit.com">
-	<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-	<link rel="stylesheet" href="./../assets/css/main.css" />
-	<title>{{ config.language.en.title }}</title>
-</head>
+	<head>
+		<meta charset="{{ config.charset }}">
+		{{#each config.language.en.meta }}
+		<meta name="{{this.name}}" content="{{this.content}}">
+		{{/each}}
+		{{#each config.language.en.og }}
+		<meta property="{{this.property}}" content="{{this.content}}">
+		{{/each}}
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="canonical" href="https://plumthedev.github.io/plumthedev/en/">
+		<link rel="dns-prefetch" href="https://cdn.rawgit.com">
+		<link rel="stylesheet"
+			href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+		<link rel="stylesheet" href="./../assets/css/main.css" />
+		<title>{{ config.language.en.title }}</title>
+	</head>
 
-<body>
-	{{> body}}
-	<script src="./../assets/js/main.js"></script>
-</body>
+	<body>
+		{{> body}}
+		<script src="./../assets/js/main.js"></script>
+	</body>
 
 </html>
