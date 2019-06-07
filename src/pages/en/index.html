@@ -3,9 +3,13 @@
 layout: default-en
 
 ---
-
-{{> lang-switcher infoText="zmień na:" language="pl" link="/../pl/"}}
-{{> en__baner}}
-{{> en__about}}
-{{> en__skills}}
-{{> en__contact}}
+{{#if config.maintenance}}
+    {{> lang-switcher infoText="zmień na:" language="pl" link="/../pl/"}}
+    {{> en__maintenance}}
+{{else}}
+    {{> lang-switcher infoText="zmień na:" language="pl" link="/../pl/"}}
+    {{> en__baner}}
+    {{> en__about}}
+    {{> en__skills}}
+    {{> en__contact}}
+{{/if}}
