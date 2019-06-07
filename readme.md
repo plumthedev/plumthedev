@@ -22,7 +22,7 @@ npm run start
 ```
 npm run build
 ```
-### Deploy
+###` Deploy
 Travis CI deploy to GitHub Pages automatically after push to master branch
 
 ## Acknowledgments
