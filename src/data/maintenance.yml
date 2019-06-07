@@ -1,0 +1,7 @@
+language:
+  pl:
+    titleText: "już wkrótce!"
+    helloText: "bądźcie czujni"
+  en:
+    titleText: "comming soon!"
+    helloText: "stay tuned"
