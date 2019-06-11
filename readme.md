@@ -1,7 +1,7 @@
 # plumthedev website
 I want to show my all skills in one place, with cool design and nice UX.
 >
-Checkout website: [plumthedev.com](https://plumthedev.com)
+Checkout website: [plumthedev.com](https://plumthedev.com/en/)
 ## Getting Started
 
 ### What do I use:
