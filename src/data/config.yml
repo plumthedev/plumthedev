@@ -24,7 +24,7 @@ language:
         content: website
       -
         property: og:image
-        content: https://plumthedev.github.io/plumthedev/assets/images/plumthedev.jpg
+        content: https://plumthedev.com/assets/images/plumthedev.jpg
       -
         property: og:image:width
         content: 1200
@@ -33,7 +33,7 @@ language:
         content: 800
       -
         property: og:url
-        content: https://plumthedev.github.io/plumthedev/pl/
+        content: https://plumthedev.com/pl/
       -
         property: og:description
         content: lorem
@@ -59,7 +59,7 @@ language:
         content: website
       -
         property: og:image
-        content: https://plumthedev.github.io/plumthedev/assets/images/plumthedev.jpg
+        content: https://plumthedev.com/assets/images/plumthedev.jpg
       -
         property: og:image:width
         content: 1200
@@ -68,7 +68,7 @@ language:
         content: 800
       -
         property: og:url
-        content: https://plumthedev.github.io/plumthedev/pl/
+        content: https://plumthedev.com/pl/
       -
         property: og:description
         content: lorem
