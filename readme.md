@@ -12,7 +12,7 @@ Checkout website: [plumthedev.com](https://plumthedev.com/en/)
 - Browser Sync
 ### Install
 ```
-npm run install
+npm install
 ```
 ### Develop
 ```
