@@ -1,0 +1,22 @@
+<section class="skills" id="skills">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12">
+                {{#if titleText}}
+                    <h2 class="skills__title">
+                        {{ titleText }}
+                    </h2>
+                {{/if}}
+            </div>
+
+            {{#if skillsList}}
+                <ul class="skills__list">
+                    {{#each skillsList }}
+                        {{> single-skill }}
+                    {{/each }}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+</section>

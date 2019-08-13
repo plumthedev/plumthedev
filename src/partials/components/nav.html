@@ -1,0 +1,14 @@
+<button id="nav-hamburger" class="nav__hamburger">
+    <span class="nav__hamburger__line"></span>
+    <span class="nav__hamburger__line"></span>
+    <span class="nav__hamburger__line"></span>
+</button>
+<nav id="nav-menu" class="nav__menu">
+    <ul class="nav__menu__list">
+        {{#each navLinks}}
+            <li class="nav__menu__list__item">
+                <a href="{{this.href}}" class="nav__menu__list__item__link">{{this.text}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</nav>

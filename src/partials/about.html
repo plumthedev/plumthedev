@@ -1,0 +1,21 @@
+<section class="about" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                {{#if titleText}}
+                    <h2 class="about__text about__text--hello">
+                        {{ titleText }}
+                    </h2>
+                {{/if }}
+
+                {{#if aboutTextes}}
+                    {{#each aboutTextes }}
+                        <p class="about__text">{{ this }}</p>
+                    {{/each}}
+                {{/if }}
+
+            </div>
+        </div>
+    </div>
+</section>
