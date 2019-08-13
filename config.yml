@@ -12,6 +12,9 @@ paths:
     javascript: './src/js/{main,main-admin}.{js,ts}'
     images: './src/assets/images/**/*'
     scss: './src/scss/{main,main-admin}.scss'
+    github:
+      main: ./src/github
+      cname: ./src/github/CNAME
     assets:
       - './src/assets/**/*'
       - '!./src/assets/{images}/**/*'

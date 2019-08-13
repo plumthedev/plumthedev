@@ -106,6 +106,18 @@ class CompaniaGulp {
             );
     }
 
+    copyGitHubCNAME() {
+        return gulp
+            .src(
+                this.configuration.paths.source.github.cname,
+            )
+            .pipe(
+                gulp.dest(
+                    this.configuration.paths.build.main,
+                ),
+            );
+    }
+
     buildScss() {
         return gulp
             .src(
@@ -221,6 +233,7 @@ class CompaniaGulp {
                 this.buildJavaScript.bind(this),
                 this.preprocessImages.bind(this),
                 this.copyAssets.bind(this),
+                this.copyGitHubCNAME.bind(this),
             ),
             this.buildScss.bind(this),
         );
