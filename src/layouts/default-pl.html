@@ -1,25 +1,28 @@
 <!doctype html>
-<html lang="{{ config.language.lang }}">
+<html lang="{{ config.language.pl.lang }}">
 
-	<head>
-		<meta charset="{{ config.charset }}">
-		{{#each config.language.pl.meta }}
-			<meta name="{{this.name}}" content="{{this.content}}">
-		{{/each}}
-		{{#each config.language.pl.og }}
-			<meta property="{{this.property}}" content="{{this.content}}">
-		{{/each}}
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="canonical" href="{{ config.address }}/pl/">
-		<link rel="dns-prefetch" href="https://cdn.rawgit.com">
-		<link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
-		<link rel="stylesheet" href="./../assets/css/main.css" />
-		<title>{{ config.language.pl.title }}</title>
-	</head>
+    <head>
+        <meta charset="{{ config.charset }}">
+        {{#each config.language.pl.meta }}
+            <meta name="{{this.name}}" content="{{this.content}}">
+        {{/each}}
+        {{#each config.language.pl.og }}
+            <meta property="{{this.property}}" content="{{this.content}}">
+        {{/each}}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        {{#each config.prefetch }}
+            <link rel="dns-prefetch" href="{{this}}">
+        {{/each}}
+        <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+        <link rel="stylesheet" href="{{config.address}}/assets/css/main.css" />
+        <title>{{ config.language.pl.title }}</title>
+    </head>
 
-	<body>
-		{{> body}}
-		<script src="./../assets/js/main.js"></script>
-	</body>
+    <body>
+        {{> body}}
+        <script src="{{config.address}}/assets/js/main.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js">
+        </script>
+    </body>
 
 </html>
