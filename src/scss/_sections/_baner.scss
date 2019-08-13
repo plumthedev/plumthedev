@@ -1,48 +1,58 @@
-.baner{
-	width: 100vw;
+.baner {
 	height: 100vh;
 	background-color: #8e44ad;
 	display: flex;
 	align-items: center;
 	position: relative;
 	overflow: hidden;
-	&__background{
+
+	&__background {
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		transform: scale(1.5);
-		@media screen and (max-width: 768px){
+
+		@media screen and (max-width: 768px) {
 			transform: scale(3.5);
 		}
-		@media screen and (max-width: 1200px){
+
+		@media screen and (max-width: 1200px) {
 			transform: scale(4.5);
 		}
-		&-path{
+
+		&-path {
 			stroke-dasharray: 100;
-			@include anim(2s, linear, alternate infinite, baner-swim );
+			@include anim(2s, linear, alternate infinite, baner-swim);
 		}
 	}
-	&__text{
+
+	&__text {
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 700;
 		color: #ecf0f1;
 		margin: 0px 0px 50px;
-		@media screen and (max-width: 768px){
+
+		@media screen and (max-width: 768px) {
 			margin: 0px 0px 25px;
 		}
-		&--name{
+
+		&--name {
 			font-size: 96px;
 			font-family: 'Istok Web', sans-serif;
-			@media screen and (max-width: 768px){
+
+			@media screen and (max-width: 768px) {
 				font-size: 48px;
 			}
 		}
-		&--welcome{
+
+		&--welcome {
 			font-size: 32px;
-			@media screen and (max-width: 768px){
+			font-weight: 300;
+
+			@media screen and (max-width: 768px) {
 				font-size: 24px;
 			}
-			font-weight: 300;
+
 		}
 	}
 }

@@ -1,36 +1,130 @@
-.contact{
-    padding: 50px 0px 25px;
+.contact {
+    padding: 50px 0px 0px;
     background: #ecf0f1;
     font-family: 'Istok Web', sans-serif;
-    &__title{
+
+    &__title {
         font-weight: 700;
         font-size: 48px;
         color: #2c3e50;
-        margin-bottom: 50px;
         font-family: 'Istok Web', sans-serif;
         color: #2c3e50;
         background: #8e44ad;
         color: #ecf0f1;
         display: inline-block;
         padding: 10px;
-        @media screen and (max-width: 768px){
+
+        @include media-breakpoint-down(md) {
             font-size: 32px;
             text-align: left;
         }
     }
-    &__nav{
-        margin: 0px auto 50px;
-        &__list-item{
-            @media only screen and (max-width: 768px) {
-                margin: 0px 0px 25px;
+
+    .form-group.has-success {
+        .contact__form__error {
+            display: none;
+        }
+    }
+
+    &__form {
+        margin: 50px 0px;
+
+        @include media-breakpoint-down(sm) {
+            margin: 25px 0px;
+        }
+
+        &__error {
+            display: none;
+            font-size: 14px;
+            color: rgb(185, 74, 72);
+            margin-top: 5px;
+
+            &:last-child {
+                display: block;
             }
-            &__link{
-                text-align: center;
-                font-size: 20px;
-                color: #2c3e50;
-        
-                &:hover{
-                    color: #2c3e50;
+        }
+
+        &__label {
+            font-size: 14px;
+            color: #8e44ad;
+            font-weight: 700;
+            font-family: 'Open Sans Bold', sans-serif;
+            letter-spacing: 0.3px;
+
+            &__link {
+                color: #8e44ad;
+
+                &:hover {
+                    color: #8e44ad;
+                }
+            }
+        }
+
+        &__input {
+            border-radius: 0px;
+            border: #bbbbbb solid 3px;
+
+            &.valid {
+                border-color: #179229;
+            }
+
+            &:focus {
+                outline: none;
+                border: solid 3px #8e44ad;
+                box-shadow: none;
+            }
+
+            &--textarea {
+                height: 275px !important;
+                resize: none;
+            }
+
+        }
+
+        &__btn {
+            display: block;
+            margin: 25px 0px 50px auto;
+            background: #8e44ad;
+            border: solid 3px #8e44ad;
+            color: #ecf0f1;
+            font-size: 20px;
+            text-transform: capitalize;
+
+            &:hover {
+                color: #8e44ad;
+                background: #fff;
+            }
+
+            @include media-breakpoint-down(sm) {
+                margin: 0 auto;
+            }
+        }
+    }
+
+    &__nav {
+        padding: 50px 15px;
+
+        @include media-breakpoint-down(sm) {
+            padding: 25px 15px;
+        }
+
+        &__list {
+            margin-bottom: 0px;
+
+            &-item {
+                @include media-breakpoint-down(md) {
+                    margin: 0px 0px 25px;
+                }
+
+                &__link {
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: #8e44ad;
+
+                    &:hover {
+                        color: #8e44ad;
+                    }
                 }
             }
         }

@@ -1,30 +1,40 @@
-.footer{
-    &__copyright{
-        &__text{
+.footer {
+    background: #e4e9ea;
+    border-top: solid 1px #8e44ad;
+    padding: 15px 15px;
+
+    &__copyright {
+        &__text {
+            margin: 0;
             font-size: 14px;
-            &--award{
+
+            &--award {
                 font-weight: 700;
                 color: #8e44ad;
             }
         }
 
-        &__link{
+        &__link {
             text-align: center;
             color: #2c3e50;
-            &:hover{
+
+            &:hover {
                 color: #2c3e50;
             }
         }
 
-        &--creator{
+        &--creator {
             text-align: left;
+
             @media only screen and (max-width: 768px) {
                 text-align: center;
                 margin: 0px 0px 10px;
             }
         }
-        &--privacy{
+
+        &--privacy {
             text-align: right;
+
             @media only screen and (max-width: 768px) {
                 text-align: center;
             }

@@ -1,0 +1,108 @@
+.nav {
+    &__hamburger {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        padding: 10px;
+        background: #fff;
+        border: solid 3px #bbb;
+        z-index: 99999;
+        transition: all ease 0.3s;
+
+        &__line {
+            position: relative;
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: #8e44ad;
+            margin-top: 6px;
+            transition: all ease 0.3s;
+
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        &:hover {
+            background: #8e44ad;
+
+            .nav__hamburger__line {
+                background: #fff;
+            }
+        }
+
+        &--close {
+            border: solid 3px #8e44ad;
+
+            & .nav__hamburger__line:nth-child(1) {
+                transform: rotate(45deg);
+                top: 9px;
+                left: 0px;
+            }
+
+            & .nav__hamburger__line:nth-child(2) {
+                right: -250px;
+                opacity: 0;
+            }
+
+            & .nav__hamburger__line:nth-child(3) {
+                transform: rotate(-45deg);
+                top: -9px;
+                left: 0px;
+            }
+        }
+    }
+
+    &__menu {
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 9999;
+        background: #fff;
+        left: -100vw;
+        transition: all ease .5s;
+
+        &__list {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            &__item {
+                opacity: 0;
+                transition: all ease 1s;
+                font-family: 'Istok Web',
+                    sans-serif;
+                font-weight: 700;
+                font-size: 72px;
+                margin-top: 25px;
+
+                @include media-breakpoint-down(md) {
+                    font-size: 48px;
+                }
+
+                @include media-breakpoint-down(sm) {
+                    font-size: 32px;
+                }
+
+                &__link {
+                    color: #8e44ad;
+
+                    &:hover {
+                        color: #8e44ad;
+                    }
+                }
+            }
+        }
+
+        &--show {
+            left: 0;
+
+            .nav__menu__list__item {
+                opacity: 1;
+            }
+        }
+    }
+}
