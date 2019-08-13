@@ -1,242 +1,265 @@
-"use strict";
+import plugins from 'gulp-load-plugins';
+import yargs from 'yargs';
+import browser from 'browser-sync';
+import gulp from 'gulp';
+import panini from 'panini';
+import rimraf from 'rimraf';
+import yaml from 'js-yaml';
+import fs from 'fs';
+import webpackStream from 'webpack-stream';
+import webpack2 from 'webpack';
+import named from 'vinyl-named';
+import autoprefixer from 'autoprefixer';
+import htmlmin from 'gulp-htmlmin';
+import cleanCSS from 'gulp-clean-css';
 
-import plugins from "gulp-load-plugins";
-import yargs from "yargs";
-import browser from "browser-sync";
-import gulp from "gulp";
-import panini from "panini";
-import rimraf from "rimraf";
-import yaml from "js-yaml";
-import fs from "fs";
-import webpackStream from "webpack-stream";
-import webpack2 from "webpack";
-import named from "vinyl-named";
-import autoprefixer from "autoprefixer";
-import htmlmin from "gulp-htmlmin";
-import cleanCSS from "gulp-clean-css";
-import WorkboxPlugin from 'workbox-webpack-plugin';
-// import sherpa from "style-sherpa";
-// import uncss         from 'uncss';
+class CompaniaGulp {
+    constructor() {
+        this.plugins = plugins();
+        this.isProduction = !!yargs.argv.production;
+        this.configuration = yaml.load(fs.readFileSync('config.yml', 'utf8'));
+    }
 
-// Load all Gulp plugins into one variable
-const $ = plugins();
+    static registerTask(taskName, taskCallback) {
+        gulp.task(
+            taskName,
+            taskCallback(),
+        );
+    }
 
-// Check for --production flag
-const PRODUCTION = !!yargs.argv.production;
+    static paniniRefreshPages(callback) {
+        panini.refresh();
+        callback();
+    }
 
-// Load settings from settings.yml
-const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
+    removeBuildDirectory(callback) {
+        rimraf(this.configuration.paths.build.main, callback);
+    }
 
-function loadConfig() {
-   let ymlFile = fs.readFileSync("config.yml", "utf8");
-   return yaml.load(ymlFile);
+    buildPages() {
+        return gulp
+            .src(this.configuration.paths.source.pages)
+            .pipe(
+                panini(this.configuration.modules.panini),
+            )
+            .pipe(
+                htmlmin({
+                    collapseWhitespace: true,
+                }),
+            )
+            .pipe(
+                gulp.dest(this.configuration.paths.build.pages),
+            );
+    }
+
+    buildJavaScript() {
+        return gulp
+            .src(this.configuration.paths.source.javascript)
+            .pipe(named())
+            .pipe(this.plugins.sourcemaps.init())
+            .pipe(webpackStream(this.retriveWebpackConfiguration(), webpack2))
+            .pipe(
+                this.plugins.if(
+                    this.isProduction,
+                    this.plugins.uglify().on('error', (e) => {
+                        throw new Error(e);
+                    }),
+                ),
+            )
+            .pipe(this.plugins.if(!this.isProduction, this.plugins.sourcemaps.write()))
+            .pipe(
+                gulp.dest(this.configuration.paths.build.javascript),
+            );
+    }
+
+    preprocessImages() {
+        return gulp
+            .src(
+                this.configuration.paths.source.images,
+            )
+            .pipe(
+                this.plugins.if(
+                    this.isProduction,
+                    this.plugins.imagemin([
+                        this.plugins.imagemin.jpegtran({
+                            optimizationLevel: 3,
+                            progressive: true,
+                            interlaced: true,
+                        }),
+                    ]),
+                ),
+            )
+            .pipe(
+                gulp.dest(this.configuration.paths.build.images),
+            );
+    }
+
+    copyAssets() {
+        return gulp
+            .src(
+                this.configuration.paths.source.assets,
+            )
+            .pipe(
+                gulp.dest(
+                    this.configuration.paths.build.assets,
+                ),
+            );
+    }
+
+    buildScss() {
+        return gulp
+            .src(
+                this.configuration.paths.source.scss,
+            )
+            .pipe(
+                this.plugins.sourcemaps.init(),
+            )
+            .pipe(
+                this.plugins.sass({
+                    includePaths: this.configuration.paths.scssDependencies,
+                }).on('error', this.plugins.sass.logError),
+            )
+            .pipe(
+                this.plugins.postcss(this.retrivePostCssConfiguration()),
+            )
+            .pipe(
+                this.plugins.if(this.isProduction,
+                    this.plugins.cleanCss({
+                        compatibility: 'ie9',
+                    })),
+            )
+            .pipe(
+                this.plugins.if(!this.isProduction, this.plugins.sourcemaps.write()),
+            )
+            .pipe(
+                cleanCSS({
+                    compatibility: 'ie8',
+                }),
+            )
+            .pipe(
+                gulp.dest(
+                    this.configuration.paths.build.css,
+                ),
+            )
+            .pipe(
+                browser.reload({
+                    stream: true,
+                }),
+            );
+    }
+
+    runServer(callback) {
+        browser.init({
+            server: this.configuration.server.contentBase,
+            port: this.configuration.server.port,
+        },
+        callback);
+    }
+
+    watchAssets() {
+        gulp.watch(
+            this.configuration.paths.watcher.assets,
+            this.copyAssets.bind(this),
+        );
+    }
+
+    watchPages() {
+        gulp
+            .watch(
+                this.configuration.paths.watcher.pages,
+            )
+            .on('all', gulp.series(this.buildPages.bind(this), browser.reload));
+        gulp
+            .watch(
+                this.configuration.paths.watcher.pagesComponents,
+            )
+            .on('all', gulp.series(CompaniaGulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
+        gulp
+            .watch(
+                this.configuration.paths.watcher.pagesData,
+            )
+            .on('all', gulp.series(CompaniaGulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
+    }
+
+    watchJavaScripts() {
+        gulp
+            .watch(
+                this.configuration.paths.watcher.javascript,
+            )
+            .on('all', gulp.series(this.buildJavaScript.bind(this), browser.reload));
+    }
+
+    watchScss() {
+        gulp
+            .watch(
+                this.configuration.paths.watcher.scss,
+            )
+            .on('all', this.buildScss.bind(this));
+    }
+
+    watchImages() {
+        gulp
+            .watch(
+                this.configuration.paths.watcher.images,
+            )
+            .on('all', gulp.series(this.preprocessImages.bind(this), browser.reload));
+    }
+
+    watchers() {
+        this.watchAssets();
+        this.watchPages();
+        this.watchJavaScripts();
+        this.watchScss();
+        this.watchImages();
+    }
+
+    buildTask() {
+        return gulp.series(
+            this.removeBuildDirectory.bind(this),
+            gulp.parallel(
+                this.buildPages.bind(this),
+                this.buildJavaScript.bind(this),
+                this.preprocessImages.bind(this),
+                this.copyAssets.bind(this),
+            ),
+            this.buildScss.bind(this),
+        );
+    }
+
+    defaultTask() {
+        return gulp.series('build', this.runServer.bind(this), this.watchers.bind(this));
+    }
+
+    retrivePostCssConfiguration() {
+        return [
+            autoprefixer({
+                browsers: this.configuration.modules.postCss,
+            }),
+        ].filter(Boolean);
+    }
+
+    retriveWebpackConfiguration() {
+        return {
+            mode: this.isProduction ? 'production' : 'development',
+            module: {
+                rules: [{
+                    test: /\.(js|jsx|tsx|ts)$/,
+                    exclude: /node_modules/,
+                    loader: 'babel-loader',
+                }],
+            },
+            resolve: {
+                extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
+            },
+            devtool: !this.isProduction && 'source-map',
+        };
+    }
+
+    run() {
+        CompaniaGulp.registerTask('build', this.buildTask.bind(this));
+        CompaniaGulp.registerTask('default', this.defaultTask.bind(this));
+    }
 }
 
-// Build the "dist" folder by running all of the below tasks
-// Sass must be run later so UnCSS can search for used classes in the others assets.
-gulp.task(
-   "build",
-   gulp.series(
-      clean,
-      gulp.parallel(pages, javascript, images, copy),
-      sass
-      // styleGuide
-   )
-);
-
-// Build the site, run the server, and watch for file changes
-gulp.task("default", gulp.series("build", server, watch));
-
-// Delete the "dist" folder
-// This happens every time a build starts
-function clean(done) {
-   rimraf(PATHS.dist, done);
-}
-
-// Copy files out of the assets folder
-// This task skips over the "img", "js", and "scss" folders, which are parsed separately
-function copy() {
-   return gulp.src(PATHS.assets).pipe(gulp.dest(PATHS.dist + "/assets"));
-}
-
-// Copy page templates into finished HTML files
-function pages() {
-   return gulp
-      .src("src/pages/**/*.{html,hbs,handlebars}")
-      .pipe(
-         panini({
-            root: "src/pages/",
-            layouts: "src/layouts/",
-            partials: "src/partials/",
-            data: "src/data/",
-            helpers: "src/helpers/"
-         })
-      )
-      .pipe(
-         htmlmin({
-            collapseWhitespace: true
-         })
-      )
-      .pipe(gulp.dest(PATHS.dist));
-}
-
-// Load updated HTML templates and partials into Panini
-function resetPages(done) {
-   panini.refresh();
-   done();
-}
-
-// Generate a style guide from the Markdown content and HTML template in styleguide/
-function styleGuide(done) {
-   sherpa(
-      "src/styleguide/index.md",
-      {
-         output: PATHS.dist + "/styleguide.html",
-         template: "src/styleguide/template.html"
-      },
-      done
-   );
-}
-
-// Compile Sass into CSS
-// In production, the CSS is compressed
-function sass() {
-   const postCssPlugins = [
-      // Autoprefixer
-      autoprefixer({ browsers: COMPATIBILITY })
-
-      // UnCSS - Uncomment to remove unused styles in production
-      // PRODUCTION && uncss.postcssPlugin(UNCSS_OPTIONS),
-   ].filter(Boolean);
-
-   return gulp
-      .src("src/scss/main.scss")
-      .pipe($.sourcemaps.init())
-      .pipe(
-         $.sass({
-            includePaths: PATHS.sass
-         }).on("error", $.sass.logError)
-      )
-      .pipe($.postcss(postCssPlugins))
-      .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: "ie9" })))
-      .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-      .pipe(cleanCSS({ compatibility: "ie8" }))
-      .pipe(gulp.dest(PATHS.dist + "/assets/css"))
-      .pipe(browser.reload({ stream: true }));
-}
-
-let webpackConfig = {
-   mode: PRODUCTION ? "production" : "development",
-   module: {
-      rules: [
-         {
-            test: /\.js$/,
-            use: {
-               loader: "babel-loader",
-               options: {
-                  presets: ["@babel/preset-env"],
-                  compact: false
-               }
-            }
-         }
-      ]
-   },
-   plugins: [
-      // new WorkboxPlugin.GenerateSW({
-      //    runtimeCaching: [{
-      //      urlPattern: '*',
-      //      handler: 'CacheFirst',
-      //      options: {
-      //        cacheName: 'plumthedev',
-      //        expiration: {
-      //          maxEntries: 25,
-      //        },
-      //      },
-      //    }],
-      //  })
-   ],
-   devtool: !PRODUCTION && "source-map"
-};
-
-// Combine JavaScript into one file
-// In production, the file is minified
-function javascript() {
-   return gulp
-      .src(PATHS.entries)
-      .pipe(named())
-      .pipe($.sourcemaps.init())
-      .pipe(webpackStream(webpackConfig, webpack2))
-      // .pipe(
-      //    $.if(
-      //       PRODUCTION,
-      //       $.uglify().on("error", e => {
-      //          console.log(e);
-      //       })
-      //    )
-      // )
-      .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-      .pipe(gulp.dest(PATHS.dist + "/assets/js"));
-}
-
-// Copy images to the "dist" folder
-// In production, the images are compressed
-function images() {
-   return gulp
-      .src("src/images/**/*")
-      .pipe(
-         $.if(
-            PRODUCTION,
-            $.imagemin([
-               $.imagemin.jpegtran({
-                  optimizationLevel: 3,
-                  progressive: true,
-                  interlaced: true
-               })
-            ])
-         )
-      )
-      .pipe(gulp.dest(PATHS.dist + "/assets/images"));
-}
-
-// Start a server with BrowserSync to preview the site in
-function server(done) {
-   browser.init(
-      {
-         startPath: '/pl',
-         server: PATHS.dist,
-         port: PORT
-      },
-      done
-   );
-}
-
-// Reload the browser with BrowserSync
-function reload(done) {
-   browser.reload();
-   done();
-}
-
-// Watch for changes to static assets, pages, Sass, and JavaScript
-function watch() {
-   gulp.watch(PATHS.assets, copy);
-   gulp
-      .watch("src/pages/**/*.html")
-      .on("all", gulp.series(pages, browser.reload));
-   gulp
-      .watch("src/{layouts,partials}/**/*.html")
-      .on("all", gulp.series(resetPages, pages, browser.reload));
-   gulp
-      .watch("src/data/**/*.{js,json,yml}")
-      .on("all", gulp.series(resetPages, pages, browser.reload));
-   gulp
-      .watch("src/helpers/**/*.js")
-      .on("all", gulp.series(resetPages, pages, browser.reload));
-   gulp.watch("src/scss/**/*.scss").on("all", sass);
-   gulp
-      .watch("src/scripts/**/*.js")
-      .on("all", gulp.series(javascript, browser.reload));
-   gulp
-      .watch("src/assets/images/**/*")
-      .on("all", gulp.series(images, browser.reload));
-   // gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));
-}
+const companiaGulp = new CompaniaGulp();
+companiaGulp.run();

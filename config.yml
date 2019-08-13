@@ -1,29 +1,44 @@
-# Your project's server will run on localhost:xxxx at this port
-PORT: 8000
-
-# Autoprefixer will make sure your CSS works with these browsers
-COMPATIBILITY:
-  - "last 2 versions"
-  - "ie >= 9"
-  - "ios >= 7"
-
-# UnCSS will use these settings
-UNCSS_OPTIONS:
-  html:
-    # Search for used CSS classes in generated HTML files
-    - "dist/**/*.html"
-
-# Gulp will reference these paths when it copies files
-PATHS:
-  # Path to dist folder
-  dist: "dist"
-  # Paths to static assets that aren't images, CSS, or JavaScript
-  assets:
-    - "src/assets/**/*"
-    - "!src/assets/{images}/**/*"
-  # Paths to Sass libraries, which can then be loaded with @import
-  sass:
-    - "node_modules/bootstrap/scss"
-  # Paths to JavaScript entry points for webpack to bundle modules
-  entries:
-    - "src/scripts/main.js"
+paths:
+  build:
+    main: './dist'
+    pages: './dist'
+    javascript: './dist/assets/js'
+    images: './dist/assets/images'
+    css: './dist/assets/css'
+    assets: './dist/assets'
+  source:
+    main: './src'
+    pages: './src/pages/**/*.html'
+    javascript: './src/js/{main,main-admin}.{js,ts}'
+    images: './src/assets/images/**/*'
+    scss: './src/scss/{main,main-admin}.scss'
+    assets:
+      - './src/assets/**/*'
+      - '!./src/assets/{images}/**/*'
+  watcher:
+      pages: './src/pages/**/*.html'
+      pagesComponents: './src/{layouts,partials}/**/*.html'
+      pagesData: './src/data/**/*.{js,json,yml}'
+      javascript: './src/js/**/*.{js,ts}'
+      images: './src/assets/images/**/*'
+      scss: './src/scss/**/*.scss'
+      assets:
+      - './src/assets/**/*'
+      - '!./src/assets/{images}/**/*'
+  scssDependencies:
+    - 'node_modules/bootstrap/scss'
+    - 'node_modules/reset-css/sass'
+modules:
+  panini:
+    root: "./src/pages/"
+    layouts: "./src/layouts/"
+    partials: "./src/partials/"
+    data: "./src/data/"
+    helpers: "./src/helpers/"
+  postCss:
+    - 'last 2 versions'
+    - 'ie >= 9'
+    - 'ios >= 7'
+server:
+  contentBase: './dist'
+  port: 8080
