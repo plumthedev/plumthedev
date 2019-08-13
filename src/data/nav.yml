@@ -1,0 +1,35 @@
+language:
+  pl:
+    links:
+      -
+        href: '/pl/'
+        text: strona główna
+      -
+        href: '#about'
+        text: o mnie
+      -
+        href: '#skills'
+        text: umiejętności
+      -
+        href: '#contact'
+        text: kontakt
+      -
+        href: '/en/'
+        text: english version
+  en:
+    links:
+      -
+        href: '/en/'
+        text: homepage
+      -
+        href: '#about'
+        text: about
+      -
+        href: '#skills'
+        text: skills
+      -
+        href: '#contact'
+        text: contact
+      -
+        href: '/pl/'
+        text: polish version

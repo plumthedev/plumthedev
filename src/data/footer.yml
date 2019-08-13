@@ -1,19 +1,19 @@
 language:
   pl:
-    default:
-      anchor:
-        reference: "/ochrona-danych-osobowych.html"
-        value: "Ochrona Danych Osobowych"
+    index:
+      link:
+        href: "/pl/"
+        text: "Wróć na stronę główną"
     privacy:
-      anchor:
-        reference: "/"
-        value: "Wróć na stronę główną"
+      link:
+        href: /pl/ochrona-danych-osobowych.html
+        text: Ochrona Danych Osobowych
   en:
-    default:
-      anchor:
-        reference: "/data-protection-information.html"
-        value: "Data Protection Information"
+    index:
+      link:
+        href: "/en/"
+        text: "Back to the main page"
     privacy:
-      anchor:
-        reference: "/"
-        value: "Back to the main page"
+      link:
+        href: /en/data-protection-information.html
+        text: "Data Protection Information"

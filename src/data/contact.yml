@@ -1,6 +1,37 @@
 language:
   pl:
-    titleText: "W kontakcie"
+    titleText: W kontakcie
+    form:
+      requiredText: wymagane
+      inputs:
+        name:
+          label: Imię
+          placeholder: Juliusz
+          validationError: Imię musi posiadać od 3 do 24 znaków
+        surname:
+          label: Nazwisko
+          placeholder: Urban
+          validationError: Nazwisko musi posiadać od 3 do 32 znaków
+        email:
+          label: Adres e-mail
+          placeholder: username@example.com
+          validationError: Podaj adres e-mail w poprawnym formacie
+        subject:
+          label: Temat
+          placeholder: Twój genialny pomysł na aplikację
+          validationError: Temat musi posiadać od 3 do 16 znaków
+        message:
+          label: Wiadomość
+          placeholder: Opowiedz coś więcej...
+          validationError: Wiadomość musi posiadać od 25 do 5000 znaków
+        privacy:
+          label: Zapoznałem się z
+          link:
+            text: Ochroną Danych Osobowych
+            href: /pl/ochrona-danych-osobowych.html
+          validationError: Musisz zaznaczyć że zapoznałeś się z Ochroną Danych Osobowych
+        button:
+          text: Wyślij
     contactLinks:
       -
         link: "https://github.com/plumthedev"
@@ -9,13 +40,44 @@ language:
         link: "https://www.linkedin.com/in/plumthedev"
         title: "linkedin"
       -
-        link: "https://twitter.com/plumthedev"
-        title: "twitter"
+        link: "https://m.me/plumthedev"
+        title: "messenger"
       -
-        link: "https://www.reddit.com/user/plumthedev"
-        title: "reddit"
+        link: "mailto:hire@plumthedev.com"
+        title: "e-mail"
   en:
-    titleText: "In touch"
+    titleText: In touch
+    form:
+      requiredText: required
+      inputs:
+        name:
+          label: First name
+          placeholder: Johnny
+          validationError: First name must be between 3 and 24 characters
+        surname:
+          label: Surname
+          placeholder: Gates
+          validationError: Surname must be between 3 and 32 characters
+        email:
+          label: E-mail address
+          placeholder: username@example.com
+          validationError: Enter e-mail address in the correct format
+        subject:
+          label: Subject
+          placeholder: Your genius idea
+          validationError: Subject must have between 3 and 16 characters
+        message:
+          label: Message
+          placeholder: Tell me more...
+          validationError: Message must contain between 25 and 5000 characters
+        privacy:
+          label: I have read the
+          link:
+            text: Data Protection Information
+            href: /en/data-protection-information.html
+          validationError: You must indicate that you have read the Personal Data Information
+        button:
+          text: Send
     contactLinks:
       -
         link: "https://github.com/plumthedev"
@@ -24,8 +86,8 @@ language:
         link: "https://www.linkedin.com/in/plumthedev"
         title: "linkedin"
       -
-        link: "https://twitter.com/plumthedev"
-        title: "twitter"
+        link: "https://m.me/plumthedev"
+        title: "messenger"
       -
-        link: "https://www.reddit.com/user/plumthedev"
-        title: "reddit"
+        link: "mailto:hire@plumthedev.com"
+        title: "e-mail"

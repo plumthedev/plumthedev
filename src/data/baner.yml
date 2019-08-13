@@ -2,8 +2,10 @@ language:
   pl:
     titleText: "plumthedev"
     helloText: "¡Hola! co słychać?"
-    buttonText: "poznaj mnie"
+    meetButtonText: "o mnie"
+    contactButtonText: "skontaktuj się"
   en:
     titleText: "plumthedev"
     helloText: "¡Hola! what's up?"
-    buttonText: "meet me"
+    meetButtonText: "meet me"
+    contactButtonText: "contact"
