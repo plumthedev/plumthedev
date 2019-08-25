@@ -1,13 +1,13 @@
 {
-  "name": "compania-frontend-starter",
+  "name": "plumthedev.com",
   "version": "1.0.0",
-  "description": "New great Compania project",
+  "description": "All my skills in one place, with cool design and nice UX.",
   "main": "gulpfile.babel.js",
   "scripts": {
     "start": "gulp",
     "build": "gulp build --production"
   },
-  "author": "Compania <biuro@compania.com.pl>",
+  "author": "Kacper Pruszyński (plumthedev) <plum@plumthedev.com>",
   "license": "MIT",
   "dependencies": {
     "animejs": "^3.1.0",
