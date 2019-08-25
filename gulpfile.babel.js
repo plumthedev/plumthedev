@@ -7,13 +7,13 @@ import rimraf from 'rimraf';
 import yaml from 'js-yaml';
 import fs from 'fs';
 import webpackStream from 'webpack-stream';
-import webpack2 from 'webpack';
+import webpack from 'webpack';
 import named from 'vinyl-named';
 import autoprefixer from 'autoprefixer';
 import htmlmin from 'gulp-htmlmin';
 import cleanCSS from 'gulp-clean-css';
 
-class CompaniaGulp {
+class Gulp {
     constructor() {
         this.plugins = plugins();
         this.isProduction = !!yargs.argv.production;
@@ -57,7 +57,7 @@ class CompaniaGulp {
             .src(this.configuration.paths.source.javascript)
             .pipe(named())
             .pipe(this.plugins.sourcemaps.init())
-            .pipe(webpackStream(this.retriveWebpackConfiguration(), webpack2))
+            .pipe(webpackStream(this.retriveWebpackConfiguration(), webpack))
             .pipe(
                 this.plugins.if(
                     this.isProduction,
@@ -185,12 +185,12 @@ class CompaniaGulp {
             .watch(
                 this.configuration.paths.watcher.pagesComponents,
             )
-            .on('all', gulp.series(CompaniaGulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
+            .on('all', gulp.series(Gulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
         gulp
             .watch(
                 this.configuration.paths.watcher.pagesData,
             )
-            .on('all', gulp.series(CompaniaGulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
+            .on('all', gulp.series(Gulp.paniniRefreshPages, this.buildPages.bind(this), browser.reload));
     }
 
     watchJavaScripts() {
@@ -269,10 +269,10 @@ class CompaniaGulp {
     }
 
     run() {
-        CompaniaGulp.registerTask('build', this.buildTask.bind(this));
-        CompaniaGulp.registerTask('default', this.defaultTask.bind(this));
+        Gulp.registerTask('build', this.buildTask.bind(this));
+        Gulp.registerTask('default', this.defaultTask.bind(this));
     }
 }
 
-const companiaGulp = new CompaniaGulp();
-companiaGulp.run();
+const gulpTaskRunner = new Gulp();
+gulpTaskRunner.run();
