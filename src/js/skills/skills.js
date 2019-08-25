@@ -1,19 +1,44 @@
-import SingleSkill from "./skills-single";
+/**
+ * Skills section script partial script.
+ * Finds single skills elements and inits it.
+ *
+ * Created with plumming love to code.
+ *
+ * @version 1.0.0
+ * @author Kacper Pruszynski <contact@plumthedev.com>
+ */
 
-export default class Skills{
-    constructor(skillsElement){
-        this.skillsElement = skillsElement;
-        this.allSkillsElements = [];
-        this.allSkills = [];
+import $ from 'jquery';
+import SingleSkill from './SingleSkill';
 
-        this.collectAllSkills.call(this);
+export default class Skills {
+    constructor() {
+        this.section = $('#skills');
+        this.singleSkills = [];
     }
 
-    collectAllSkills(){
-        this.allSkillsElements = this.skillsElement.querySelectorAll('.skills__list-item');
+    collectAllSkills() {
+        const singleSkillsItems = this.findSingleSkillsItems();
 
-        this.allSkillsElements.forEach((skillElement) => {
-            this.allSkills.push(new SingleSkill(skillElement))
+        singleSkillsItems.each((index, singleSkillsItem) => {
+            const singleSkill = new SingleSkill(singleSkillsItem);
+            this.pushSingleSkill(singleSkill);
+        });
+    }
+
+    findSingleSkillsItems() {
+        return this.section.find('.skills__list-item');
+    }
+
+    pushSingleSkill(singleSkill) {
+        this.singleSkills.push(singleSkill);
+    }
+
+    init() {
+        this.collectAllSkills();
+
+        this.singleSkills.forEach((singleSkill) => {
+            singleSkill.init();
         });
     }
 }

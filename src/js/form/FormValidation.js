@@ -1,3 +1,14 @@
+/**
+ * Form validation.
+ *
+ * Created with plumming love to code.
+ *
+ * @version 1.0.0
+ * @author Kacper Pruszynski <contact@plumthedev.com>
+ */
+
+import $ from 'jquery';
+
 export default class FormValidation {
     static getValidationOptions() {
         return {
@@ -17,6 +28,6 @@ export default class FormValidation {
     }
 
     static getLanguage() {
-        return (window.location.href.includes('/pl')) ? 'pl' : 'en';
+        return $('html').attr('lang');
     }
 }

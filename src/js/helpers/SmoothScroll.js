@@ -1,3 +1,13 @@
+/**
+ * Smooth scroll with start evemt.
+ * Start event helps close menu on link click.
+ *
+ * Created with plumming love to code.
+ *
+ * @version 1.0.0
+ * @author Kacper Pruszynski <contact@plumthedev.com>
+ */
+
 import $ from 'jquery';
 
 export default class SmoothScroll {
@@ -18,10 +28,14 @@ export default class SmoothScroll {
                     event.preventDefault();
                     SmoothScroll.setLocationHash(clickedLink);
                     SmoothScroll.animateScroll(scrollTarget);
-                    $(document).trigger('smoothScrollStart');
+                    SmoothScroll.triggerStartEvent();
                 }
             }
         });
+    }
+
+    static triggerStartEvent() {
+        $(document).trigger('smoothScrollStart');
     }
 
     static validateClickedLink(clickedLink) {

@@ -9,58 +9,47 @@
 
 import $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap.bundle';
+
+import Nav from './nav/Nav';
+import About from './about/About';
+import Skills from './skills/Skills';
 import SmoothScroll from './helpers/SmoothScroll';
 import FormValidation from './form/FormValidation';
-import About from './about/about';
-import Skills from './skills/skills';
-import Nav from './nav/Nav';
 
 window.jQuery = $;
 
 class Plum {
     constructor() {
-        this.aboutNode = document.getElementById('about');
-        this.about = this.getAbout();
-        this.skillsNode = document.getElementById('skills');
-        this.skills = this.getSkills();
-        this.nav = new Nav();
-        this.formValidation = FormValidation;
+        this.components = {
+            nav: new Nav(),
+            about: new About(),
+            skills: new Skills(),
+        };
         this.smoothScroll = SmoothScroll;
+        this.formValidation = FormValidation;
     }
 
-    static nodeExist(node) {
-        return Boolean(document.body.contains(node));
+    initComponents() {
+        const compoents = Object.values(this.components);
+
+        compoents.forEach((compoent) => {
+            compoent.init();
+        });
     }
 
-    getSkills() {
-        if (Plum.nodeExist(this.skillsNode)) {
-            this.skills = new Skills(this.skillsNode);
-        }
-
-        return this.skills;
-    }
-
-    getAbout() {
-        if (Plum.nodeExist(this.aboutNode)) {
-            this.about = new About(this.aboutNode);
-        }
-
-        return this.about;
+    runHelpers() {
+        this.smoothScroll.scroll();
+        this.formValidation.validate();
     }
 
     init() {
-        this.nav.init();
-        this.formValidation.validate();
-        this.smoothScroll.scroll();
-
-        if (Plum.nodeExist(this.aboutNode)) {
-            this.about.moveBackground();
-        }
+        this.initComponents();
+        this.runHelpers();
     }
 }
 
 // it's time to plumming
 $(document).ready(() => {
-    const plumWebsite = new Plum();
-    plumWebsite.init();
+    const plum = new Plum();
+    plum.init();
 });

@@ -1,3 +1,12 @@
+/**
+ * Shows navigation and add keyboard shortcuts to easy close it.
+ *
+ * Created with plumming love to code.
+ *
+ * @version 1.0.0
+ * @author Kacper Pruszynski <contact@plumthedev.com>
+ */
+
 import $ from 'jquery';
 
 export default class Nav {
@@ -5,80 +14,56 @@ export default class Nav {
         this.page = $(document.body);
         this.hamburgerButton = $('#nav-hamburger');
         this.navMenu = $('#nav-menu');
-        this.isNavShowed = false;
+        this.isShowed = false;
     }
 
     show() {
-        this.isNavShowed = true;
-
-        this.slideInNavMenu();
-        this.processHamburgerToClose();
-        this.blockPageScroll();
+        this.navMenu.addClass('nav__menu--show');
+        this.hamburgerButton.addClass('nav__hamburger--close');
+        this.page.css('overflow', 'hidden');
     }
 
     hide() {
-        this.isNavShowed = false;
-
-        this.slideOutNavMenu();
-        this.processCloseToHamburger();
-        this.unblockPageScroll();
+        this.navMenu.removeClass('nav__menu--show');
+        this.hamburgerButton.removeClass('nav__hamburger--close');
+        this.page.css('overflow', 'auto');
     }
 
     toggle() {
-        if (this.isNavShowed) {
+        if (this.isShowed) {
             this.hide();
         } else {
             this.show();
         }
+
+        this.isShowed = !this.isShowed;
     }
 
+    addKeyShortcuts() {
+        $(document).keyup((event) => {
+            const {
+                keyCode,
+            } = event;
+
+            // hide on esc
+            if (keyCode === 27 && this.isShowed) {
+                this.hide();
+            }
+        });
+    }
+
+
     init() {
-        this.keyboardShortcuts();
+        this.addKeyShortcuts();
 
         this.hamburgerButton.click(() => {
             this.toggle();
         });
 
         $(document).on('smoothScrollStart', () => {
-            if (this.isNavShowed) {
+            if (this.isShowed) {
                 this.hide();
             }
         });
-    }
-
-    keyboardShortcuts() {
-        $(document).keyup((event) => {
-            const {
-                keyCode,
-            } = event;
-
-            if (keyCode === 27 && this.isNavShowed) {
-                this.hide();
-            }
-        });
-    }
-
-    slideInNavMenu() {
-        this.navMenu.addClass('nav__menu--show');
-    }
-
-    slideOutNavMenu() {
-        this.navMenu.removeClass('nav__menu--show');
-    }
-
-    processHamburgerToClose() {
-        this.hamburgerButton.addClass('nav__hamburger--close');
-    }
-
-    processCloseToHamburger() {
-        this.hamburgerButton.removeClass('nav__hamburger--close');
-    }
-
-    blockPageScroll() {
-        this.page.css('overflow', 'hidden');
-    }
-
-    unblockPageScroll() {
-        this.page.css('overflow', 'auto');
     }
 }
