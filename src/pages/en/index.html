@@ -4,42 +4,45 @@ layout: default-en
 
 ---
 
-{{#if config.maintenance}}
-    {{> baner
-        titleText = maintenance.language.en.titleText
-        helloText = maintenance.language.en.helloText
-        showButtons = "false"
-    }}
-{{else}}
-    {{> nav
-        navLinks = nav.language.en.links
-    }}
 
-    {{> baner
-        titleText = baner.language.en.titleText
-        helloText = baner.language.en.helloText
-        showButtons = "true"
-        meetButtonText = baner.language.en.meetButtonText
-        contactButtonText = baner.language.en.contactButtonText
-    }}
+<main id="page-index">
+    {{#if config.maintenance}}
+        {{> baner
+            titleText = maintenance.language.en.titleText
+            helloText = maintenance.language.en.helloText
+            showButtons = "false"
+        }}
+    {{else}}
+        {{> nav
+            navLinks = nav.language.en.links
+        }}
 
-    {{> about
-        titleText = about.language.en.titleText
-        aboutTextes = about.language.en.aboutTextes
-    }}
+        {{> baner
+            titleText = baner.language.en.titleText
+            helloText = baner.language.en.helloText
+            showButtons = "true"
+            meetButtonText = baner.language.en.meetButtonText
+            contactButtonText = baner.language.en.contactButtonText
+        }}
 
-    {{> skills
-        titleText = skills.language.en.titleText
-        skillsList = skills.language.en.skillsList
-    }}
+        {{> about
+            titleText = about.language.en.titleText
+            aboutTextes = about.language.en.aboutTextes
+        }}
 
-    {{> contact
-        titleText = contact.language.en.titleText
-        form = contact.language.en.form
-        contactLinks = contact.language.en.contactLinks
-    }}
+        {{> skills
+            titleText = skills.language.en.titleText
+            skillsList = skills.language.en.skillsList
+        }}
 
-    {{> footer
-        footerLink = footer.language.en.privacy.link
-    }}
-{{/if}}
+        {{> contact
+            titleText = contact.language.en.titleText
+            form = contact.language.en.form
+            contactLinks = contact.language.en.contactLinks
+        }}
+
+        {{> footer
+            footerLink = footer.language.en.privacy.link
+        }}
+    {{/if}}
+</main>
