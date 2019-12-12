@@ -102,8 +102,9 @@ export default class About {
 
     init() {
         this.swimBackground();
-        $(document).scroll(() => {
-            this.swimBackground();
-        });
+        $(document)
+            .scroll(() => {
+                this.swimBackground();
+            });
     }
 }
