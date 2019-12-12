@@ -1,9 +1,8 @@
-address: https://plumthedev.com
-adminEmail: contact@plumthedev.com
-hireEmail: hire@plumthedev.com
+defaultLang: pl
+contactEmail: contact@plumthedev.com
 maintenance: true
 charset: utf-8
-contactFormAction: https://formspree.io/hire@plumthedev.com
+contactFormAction: https://formspree.io/contact@plumthedev.com
 prefetch:
   - "//cdn.rawgit.com"
   - "//cdnjs.cloudflare.com"
