@@ -1,0 +1,9 @@
+{
+    "fileServerFolder": "./build",
+    "fixturesFolder": "tests/fixtures",
+    "integrationFolder": "tests/integration",
+    "pluginsFile": "tests/plugins/index.js",
+    "screenshotsFolder": "tests/screenshots",
+    "supportFile": "tests/support/index.js",
+    "videosFolder": "tests/videos"
+}
