@@ -694,4 +694,5 @@ MigrationBackup/
 
 # Others
 dist
+build
 *.swp

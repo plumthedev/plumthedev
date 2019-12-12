@@ -1,11 +1,11 @@
 paths:
   build:
-    main: './dist'
-    pages: './dist'
-    javascript: './dist/assets/js'
-    images: './dist/assets/images'
-    css: './dist/assets/css'
-    assets: './dist/assets'
+    main: './build'
+    pages: './build'
+    javascript: './build/assets/js'
+    images: './build/assets/images'
+    css: './build/assets/css'
+    assets: './build/assets'
   source:
     main: './src'
     pages: './src/pages/**/*.html'
@@ -38,10 +38,6 @@ modules:
     partials: "./src/partials/"
     data: "./src/data/"
     helpers: "./src/helpers/"
-  postCss:
-    - 'last 2 versions'
-    - 'ie >= 9'
-    - 'ios >= 7'
 server:
-  contentBase: './dist'
+  contentBase: './build'
   port: 8080
