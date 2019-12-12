@@ -61,9 +61,10 @@ class Gulp {
             .pipe(
                 this.plugins.if(
                     this.isProduction,
-                    this.plugins.uglify().on('error', (e) => {
-                        throw new Error(e);
-                    }),
+                    this.plugins.uglify()
+                        .on('error', (e) => {
+                            throw new Error(e);
+                        }),
                 ),
             )
             .pipe(this.plugins.if(!this.isProduction, this.plugins.sourcemaps.write()))
@@ -129,7 +130,8 @@ class Gulp {
             .pipe(
                 this.plugins.sass({
                     includePaths: this.configuration.paths.scssDependencies,
-                }).on('error', this.plugins.sass.logError),
+                })
+                    .on('error', this.plugins.sass.logError),
             )
             .pipe(
                 this.plugins.postcss(this.retrivePostCssConfiguration()),
@@ -164,8 +166,7 @@ class Gulp {
         browser.init({
             server: this.configuration.server.contentBase,
             port: this.configuration.server.port,
-        },
-        callback);
+        }, callback);
     }
 
     watchAssets() {
@@ -243,11 +244,10 @@ class Gulp {
         return gulp.series('build', this.runServer.bind(this), this.watchers.bind(this));
     }
 
+    // eslint-disable-next-line class-methods-use-this
     retrivePostCssConfiguration() {
         return [
-            autoprefixer({
-                browsers: this.configuration.modules.postCss,
-            }),
+            autoprefixer(),
         ].filter(Boolean);
     }
 
@@ -255,11 +255,13 @@ class Gulp {
         return {
             mode: this.isProduction ? 'production' : 'development',
             module: {
-                rules: [{
-                    test: /\.(js|jsx|tsx|ts)$/,
-                    exclude: /node_modules/,
-                    loader: 'babel-loader',
-                }],
+                rules: [
+                    {
+                        test: /\.(js|jsx|tsx|ts)$/,
+                        exclude: /node_modules/,
+                        loader: 'babel-loader',
+                    },
+                ],
             },
             resolve: {
                 extensions: ['*', '.js', '.jsx', '.tsx', '.ts'],
@@ -269,6 +271,10 @@ class Gulp {
     }
 
     run() {
+        this.registerTasks();
+    }
+
+    registerTasks() {
         Gulp.registerTask('build', this.buildTask.bind(this));
         Gulp.registerTask('default', this.defaultTask.bind(this));
     }
