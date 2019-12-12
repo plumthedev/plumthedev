@@ -30,10 +30,10 @@ class Plum {
     }
 
     initComponents() {
-        const compoents = Object.values(this.components);
+        const components = Object.values(this.components);
 
-        compoents.forEach((compoent) => {
-            compoent.init();
+        components.forEach((component) => {
+            component.init();
         });
     }
 
@@ -49,7 +49,8 @@ class Plum {
 }
 
 // it's time to plumming
-$(document).ready(() => {
-    const plum = new Plum();
-    plum.init();
-});
+$(document)
+    .ready(() => {
+        const plum = new Plum();
+        plum.init();
+    });
