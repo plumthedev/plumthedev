@@ -4,42 +4,44 @@ layout: default-pl
 
 ---
 
-{{#if config.maintenance}}
-    {{> baner
-            titleText = maintenance.language.pl.titleText
-            helloText = maintenance.language.pl.helloText
-            showButtons = "false"
-    }}
-{{else}}
-    {{> nav
-        navLinks = nav.language.pl.links
-    }}
+<main id="page-index">
+    {{#if config.maintenance}}
+        {{> baner
+                titleText = maintenance.language.pl.titleText
+                helloText = maintenance.language.pl.helloText
+                showButtons = "false"
+        }}
+    {{else}}
+        {{> nav
+            navLinks = nav.language.pl.links
+        }}
 
-    {{> baner
-        titleText = baner.language.pl.titleText
-        helloText = baner.language.pl.helloText
-        showButtons = "true"
-        meetButtonText = baner.language.pl.meetButtonText
-        contactButtonText = baner.language.pl.contactButtonText
-    }}
+        {{> baner
+            titleText = baner.language.pl.titleText
+            helloText = baner.language.pl.helloText
+            showButtons = "true"
+            meetButtonText = baner.language.pl.meetButtonText
+            contactButtonText = baner.language.pl.contactButtonText
+        }}
 
-    {{> about
-        titleText = about.language.pl.titleText
-        aboutTextes = about.language.pl.aboutTextes
-    }}
+        {{> about
+            titleText = about.language.pl.titleText
+            aboutTextes = about.language.pl.aboutTextes
+        }}
 
-    {{> skills
-        titleText = skills.language.pl.titleText
-        skillsList = skills.language.pl.skillsList
-    }}
+        {{> skills
+            titleText = skills.language.pl.titleText
+            skillsList = skills.language.pl.skillsList
+        }}
 
-    {{> contact
-        titleText = contact.language.pl.titleText
-        form = contact.language.pl.form
-        contactLinks = contact.language.pl.contactLinks
-    }}
+        {{> contact
+            titleText = contact.language.pl.titleText
+            form = contact.language.pl.form
+            contactLinks = contact.language.pl.contactLinks
+        }}
 
-    {{> footer
-        footerLink = footer.language.pl.privacy.link
-    }}
-{{/if}}
+        {{> footer
+            footerLink = footer.language.pl.privacy.link
+        }}
+    {{/if}}
+</main>

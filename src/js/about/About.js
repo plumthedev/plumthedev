@@ -11,11 +11,11 @@ import $ from 'jquery';
 
 export default class About {
     constructor() {
-        this.aboutElement = $('#about');
+        this.aboutSection = $('#about');
         this.scrollProgress = 0;
         this.windowScrollY = window.scrollY;
-        this.aboutElementOffset = this.aboutElement.offset();
-        this.aboutElementHeight = this.aboutElement.outerHeight();
+        this.aboutElementOffset = this.aboutSection.offset();
+        this.aboutElementHeight = this.aboutSection.outerHeight();
         this.backgroundPosition = 50;
     }
 
@@ -33,7 +33,7 @@ export default class About {
 
     setCssBackgroundPosition() {
         const backgroundPositionPercent = `${this.backgroundPosition}%`;
-        this.aboutElement.css('background-position-y', backgroundPositionPercent);
+        this.aboutSection.css('background-position-y', backgroundPositionPercent);
     }
 
     calcBackgroundPosition() {
@@ -98,6 +98,10 @@ export default class About {
             this.backgroundPosition = backgroundPosition;
             break;
         }
+    }
+
+    canInit(){
+        return this.aboutSection.length;
     }
 
     init() {

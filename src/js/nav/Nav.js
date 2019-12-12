@@ -40,16 +40,21 @@ export default class Nav {
     }
 
     addKeyShortcuts() {
-        $(document).keyup((event) => {
-            const {
-                keyCode,
-            } = event;
+        $(document)
+            .keyup((event) => {
+                const {
+                    keyCode,
+                } = event;
 
-            // hide on esc
-            if (keyCode === 27 && this.isShowed) {
-                this.hide();
-            }
-        });
+                // hide on esc
+                if (keyCode === 27 && this.isShowed) {
+                    this.hide();
+                }
+            });
+    }
+
+    canInit() {
+        return this.hamburgerButton.length;
     }
 
 
@@ -60,10 +65,11 @@ export default class Nav {
             this.toggle();
         });
 
-        $(document).on('smoothScrollStart', () => {
-            if (this.isShowed) {
-                this.hide();
-            }
-        });
+        $(document)
+            .on('smoothScrollStart', () => {
+                if (this.isShowed) {
+                    this.hide();
+                }
+            });
     }
 }
