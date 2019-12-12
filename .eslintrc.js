@@ -6,5 +6,11 @@ module.exports = {
     },
     rules: {
         indent: ['error', 4]
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/js/**/*.js", 'tests/**/*.js'],
+            "excludedFiles": "*.spec.js",
+        }
+    ]
 };
