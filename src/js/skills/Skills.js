@@ -13,7 +13,7 @@ import SingleSkill from './SingleSkill';
 
 export default class Skills {
     constructor() {
-        this.section = $('#skills');
+        this.skillsSection = $('#skills');
         this.singleSkills = [];
     }
 
@@ -27,11 +27,15 @@ export default class Skills {
     }
 
     findSingleSkillsItems() {
-        return this.section.find('.skills__list-item');
+        return this.skillsSection.find('.skills__list-item');
     }
 
     pushSingleSkill(singleSkill) {
         this.singleSkills.push(singleSkill);
+    }
+
+    canInit() {
+        return this.skillsSection.length;
     }
 
     init() {

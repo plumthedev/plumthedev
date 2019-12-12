@@ -14,7 +14,7 @@ import Nav from './nav/Nav';
 import About from './about/About';
 import Skills from './skills/Skills';
 import SmoothScroll from './helpers/SmoothScroll';
-import FormValidation from './form/FormValidation';
+import FormValidation from './helpers/FormValidation';
 
 window.jQuery = $;
 
@@ -33,7 +33,9 @@ class Plum {
         const components = Object.values(this.components);
 
         components.forEach((component) => {
-            component.init();
+            if (component.canInit()) {
+                component.init();
+            }
         });
     }
 
