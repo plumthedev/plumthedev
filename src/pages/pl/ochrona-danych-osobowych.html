@@ -4,33 +4,35 @@ layout: default-pl
 
 ---
 
-{{#if config.maintenance}}
-    {{> baner
-            titleText = maintenance.language.pl.titleText
-            helloText = maintenance.language.pl.helloText
+<main id="page-data-protection">
+    {{#if config.maintenance}}
+        {{> baner
+                titleText = maintenance.language.pl.titleText
+                helloText = maintenance.language.pl.helloText
+                showButtons = "false"
+        }}
+    {{else}}
+        {{> nav
+            navLinks = nav.language.pl.links
+        }}
+
+        {{> baner
+            titleText = privacy.language.pl.titleText
             showButtons = "false"
-    }}
-{{else}}
-    {{> nav
-        navLinks = nav.language.pl.links
-    }}
+        }}
 
-    {{> baner
-        titleText = privacy.language.pl.titleText
-        showButtons = "false"
-    }}
+        {{> privacy-content
+            privacyContent = privacy.language.pl.content
+        }}
 
-    {{> privacy-content
-        privacyContent = privacy.language.pl.content
-    }}
+        {{> contact
+            titleText = contact.language.pl.titleText
+            form = contact.language.pl.form
+            contactLinks = contact.language.pl.contactLinks
+        }}
 
-    {{> contact
-        titleText = contact.language.pl.titleText
-        form = contact.language.pl.form
-        contactLinks = contact.language.pl.contactLinks
-    }}
-
-    {{> footer
-        footerLink = footer.language.pl.index.link
-    }}
-{{/if}}
+        {{> footer
+            footerLink = footer.language.pl.index.link
+        }}
+    {{/if}}
+</main>

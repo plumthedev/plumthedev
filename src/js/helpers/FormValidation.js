@@ -17,7 +17,8 @@ export default class FormValidation {
             onfocusout: false,
             onkeyup: false,
             success(label) {
-                label.parent().removeClass('error');
+                label.parent()
+                    .removeClass('error');
                 label.remove();
             },
         };
@@ -28,6 +29,7 @@ export default class FormValidation {
     }
 
     static getLanguage() {
-        return $('html').attr('lang');
+        return $('html')
+            .attr('lang');
     }
 }

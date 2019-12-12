@@ -5,7 +5,9 @@
     "main": "gulpfile.babel.js",
     "scripts": {
         "start": "gulp",
-        "build": "gulp build --production"
+        "build": "gulp build --production",
+        "test": "",
+        "cypress:open": "cypress open"
     },
     "author": "Kacper Pruszyński (plumthedev) <plum@plumthedev.com>",
     "license": "MIT",
