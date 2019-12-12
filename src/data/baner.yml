@@ -1,11 +1,11 @@
 language:
   pl:
     titleText: "plumthedev"
-    helloText: "¡Hola! co słychać?"
+    helloText: "programista fullstack"
     meetButtonText: "o mnie"
     contactButtonText: "skontaktuj się"
   en:
     titleText: "plumthedev"
-    helloText: "¡Hola! what's up?"
+    helloText: "fullstack developer"
     meetButtonText: "meet me"
     contactButtonText: "contact"
