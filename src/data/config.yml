@@ -1,8 +1,8 @@
 defaultLang: pl
-contactEmail: contact@plumthedev.com
-maintenance: true
+contactEmail: kacper.pruszynski99@gmail.com
+maintenance: false
 charset: utf-8
-contactFormAction: https://formspree.io/contact@plumthedev.com
+contactFormAction: https://formspree.io/kacper.pruszynski99@gmail.com
 prefetch:
   - "//cdn.rawgit.com"
   - "//cdnjs.cloudflare.com"
@@ -13,10 +13,10 @@ language:
     meta:
       -
         name: description
-        content: lorem ipsum
+        content: Kacper Pruszyński - inżynier nowoczesnych stron WWW szytch na miarę
       -
         name: keywords
-        content: plumthedev, Kacper, Pruszyński, programista, fullstack developer, developer,
+        content: plumthedev, Kacper, Pruszyński, programista, fullstack developer, developer, webdeveloper
       -
         name: robots
         content: follow, all
@@ -41,17 +41,17 @@ language:
         content: https://plumthedev.com/pl/
       -
         property: og:description
-        content: lorem
+        content: plumthedev, Kacper, Pruszyński, programista, fullstack developer, developer, webdeveloper
   en:
     lang: en
     title: plumthedev | Kacper Pruszynski - fullstack developer
     meta:
       -
         name: description
-        content: lorem ipsum
+        content: Kacper Pruszyński - tailor-made modern website engineer
       -
         name: keywords
-        content: lorem,ipsum
+        content: plumthedev, Kacper, Pruszyński, fullstack developer, developer, webdeveloper
       -
         name: robots
         content: follow, all
@@ -76,4 +76,4 @@ language:
         content: https://plumthedev.com/en/
       -
         property: og:description
-        content: lorem
+        content: Kacper Pruszyński - tailor-made modern website engineer
