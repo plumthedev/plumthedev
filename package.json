@@ -15,7 +15,7 @@
         "bootstrap": "^4.4.1",
         "browserslist": "^4.8.2",
         "caniuse-lite": "^1.0.30001015",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "jquery-form-validator": "^2.3.79",
         "popper.js": "^1.16.0",
         "reset-css": "^5.0.1"
