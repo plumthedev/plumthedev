@@ -36,7 +36,7 @@
         "babel-loader": "^8.0.6",
         "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
         "braces": "^3.0.2",
-        "browser-sync": "^2.26.7",
+        "browser-sync": "^2.27.10",
         "cypress": "^3.7.0",
         "eslint": "^6.7.2",
         "eslint-config-airbnb-base": "^14.0.0",
